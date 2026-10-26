@@ -503,13 +503,28 @@
     .stage-anchor { background: #fdf2f4; }
     .anchor-row { display: flex; gap: 6px; }
     .anchor-chip { width: 40px; height: 56px; border-radius: 9px; box-shadow: 0 4px 10px rgba(0,0,0,0.12); }
+
+    /* 詳細解説（折りたたみ） */
+    .term-more { margin-bottom: 14px; border: 1px solid var(--border); border-radius: 10px; background: rgba(15, 23, 42, 0.45); }
+    .term-more summary { cursor: pointer; padding: 8px 12px; font-size: 0.8rem; font-weight: 700; color: var(--accent); list-style: none; display: flex; align-items: center; gap: 6px; }
+    .term-more summary::-webkit-details-marker { display: none; }
+    .term-more summary::before { content: "▸"; transition: transform 0.15s; display: inline-block; }
+    .term-more[open] summary::before { transform: rotate(90deg); }
+    .term-more summary:hover { color: #7dd3fc; }
+    .more-body { padding: 2px 14px 12px; font-size: 0.82rem; color: #cbd5e1; }
+    .more-body dt { font-size: 0.72rem; font-weight: 700; color: var(--accent-2); margin-top: 10px; letter-spacing: 0.04em; }
+    .more-body dd { margin-top: 2px; line-height: 1.7; }
+    .more-notes a { display: inline-block; margin: 2px 6px 2px 0; padding: 1px 9px; border-radius: 999px; background: rgba(129, 140, 248, 0.15); color: #c7d2fe; font-size: 0.72rem; text-decoration: none; }
+    .more-notes a:hover { background: var(--accent-2); color: #0f172a; }
+    .toggle-all { background: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 8px 14px; border-radius: 10px; font-size: 0.8rem; font-weight: 600; cursor: pointer; }
+    .toggle-all:hover { border-color: var(--accent); color: var(--accent); }
   </style>
 </head>
 <body>
 
   <header>
     <div class="container">
-      <h1>UI/UX デザイン＆トレンド用語 ビジュアル大図鑑 <span style="font-size:0.9rem; color:#fda4af; font-weight:600;">v3.0 (学習ノート連携)</span></h1>
+      <h1>UI/UX デザイン＆トレンド用語 ビジュアル大図鑑 <span style="font-size:0.9rem; color:#fda4af; font-weight:600;">v3.1 (詳細解説つき)</span></h1>
       <p class="subtitle">Apple固有のUI表現・モーフィズム・レイアウト構造・世界観・UIコンポーネント・UX原則・タイポグラフィと配色の全44用語（プロンプトコピー機能付き）</p>
       <div class="controls">
         <div class="tabs" id="categoryTabs">
@@ -523,6 +538,7 @@
           <button class="tab-btn" data-cat="ux">動き・UX原則 (7)</button>
           <button class="tab-btn" data-cat="typecolor">タイポグラフィ・配色 (4)</button>
         </div>
+        <button type="button" class="toggle-all" id="toggleAll">解説をすべて開く</button>
         <input type="text" id="searchInput" class="search-input" placeholder="用語名・Apple・特徴で検索...">
       </div>
     </div>
@@ -550,6 +566,15 @@
         <h2 class="term-title">空間UI（スペーシャルUI）</h2>
         <div class="term-en">Spatial UI / visionOS Glass Material</div>
         <p class="term-desc">グラスモーフィズムを3D空間向けに進化させたAppleの最新デザイン。ガラスの上端が光を反射する「スペキュラーハイライト（鋭い白縁）」と、視線を合わせた時にふわっと明るく浮き上がるホバー表現が特徴です。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>ウィンドウは「ガラス板」として空間に浮かぶ。上端の鋭い白縁（スペキュラーハイライト）が環境光の反射を、深く広いドロップシャドウが空中に浮く高さを表す。視線を合わせると少し明るくなるホバー表現で、操作対象を知らせる。</dd>
+            <dt>使いどころ</dt><dd>3D空間やARで、現実の背景と重なるパネル・ウィンドウ。Web では背景ぼかし＋細い白縁＋大きな影の組み合わせで雰囲気だけ再現できる。</dd>
+            <dt>注意点</dt><dd>背景が透けるため、背後の色次第で文字が読みにくくなる。文字の背面には必ず十分なコントラストを確保する。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-glass-button-figma.md" target="_blank" rel="noopener">Figmaで作るガラスボタン</a><a href="notes/2026-10-26-glassmorphism-button-states.md" target="_blank" rel="noopener">ガラスボタンの状態設計</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Apple visionOS spatial glass UI, specular top highlight border, deep ambient shadow</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -579,6 +604,14 @@
         <h2 class="term-title">ダイナミックアイランド風UI（流体モーフィング）</h2>
         <div class="term-en">Dynamic Island / Fluid Morphing Pill</div>
         <p class="term-desc">黒いカプセル型（ピル）の領域が、通知や再生状態に応じて液体やスライムのようにバネ挙動（スプリング物理演算）でヌルッと伸縮・変形するマイクロインタラクション。Webのフローティングナビでも大流行しています。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>黒いピル型の領域が、通知・通話・再生などの状態に合わせて形と大きさを変える。動きに「バネ（スプリング）」の物理挙動を使うので、伸びてから少し戻る粘り気のある変形になる。</dd>
+            <dt>使いどころ</dt><dd>Web でも、フローティングナビや通知バーを「状態に応じて伸縮するカプセル」にすると同じ感触が出せる。状態変化を1か所で受け止める設計にも向く。</dd>
+            <dt>注意点</dt><dd>動きが派手になりやすい。変形中に内容が読めなくなるのは避け、アニメは短く（数百ms程度）保つ。動きを減らす設定（prefers-reduced-motion）への配慮も忘れずに。</dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Apple Dynamic Island style floating pill navbar with spring physics morphing animation</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -604,6 +637,14 @@
         <h2 class="term-title">スクワークル（連続曲率の超楕円）</h2>
         <div class="term-en">Squircle / Continuous Curvature Corner</div>
         <p class="term-desc">「Square（四角）」＋「Circle（円）」の造語。通常のCSS角丸と違い、直線からカーブへ入る継ぎ目の曲率が徐々に変化するため、iPhoneのアイコンや筐体のような「工芸品のように滑らかな角丸」になります。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>四角と円の中間形。通常の角丸（border-radius）は直線から円弧へ急に切り替わるため、継ぎ目に曲率の段差が見える。スクワークルは曲率が少しずつ変化するので、角がなめらかに繋がって見える。</dd>
+            <dt>使いどころ</dt><dd>アプリアイコン、カード、ボタンなど、角丸を多用するUIの「上質さ」を上げたいとき。Figma の角の滑らかさ（Corner smoothing）設定や、SVG パスで近い形を作れる。</dd>
+            <dt>注意点</dt><dd>CSS の border-radius だけでは厳密には再現できない。大きな差が出るのは大きめの角丸なので、小さな要素では費用対効果が低い。</dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Apple-style squircle cards with smooth continuous corner curvature (border-radius: 24px+)</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -625,6 +666,15 @@
         <h2 class="term-title">Apple風プロダクトLP表現</h2>
         <div class="term-en">Apple-Style Product Showcase &amp; Scrollytelling</div>
         <p class="term-desc">MacBook ProやiPhone Proの紹介ページでおなじみのスタイル。純黒（#000）の背景、メタリックなグラデーション文字（background-clip: text）、スクロールに連動して製品が暗闇から浮かび上がる演出の組み合わせです。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>見た目の要素は3つ。①純黒の背景で製品の発色を際立たせる、②メタリックな文字グラデーションで金属の質感を出す、③大きな製品画像を中央に置き、言葉を最小限にする。強い第一印象で価値を伝える構成で、Webでは背景の色と文字の背景クリップ（background-clip: text）だけでも雰囲気が出る。</dd>
+            <dt>使いどころ</dt><dd>高級感のある製品紹介・ブランドサイトのヒーロー部分。ヒーローセクション＆フルブリードや、Fパターン／Zパターンの視線設計と組み合わせると効く。</dd>
+            <dt>注意点</dt><dd>演出を盛りすぎると読み込みが重くなる。画像・動画の容量とモバイルでの表示を必ず確認する。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-website-conversion.md" target="_blank" rel="noopener">Webサイトの見た目と成果</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Apple product landing page style, pitch black background, metallic gradient typography, dramatic rim lighting</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -647,6 +697,15 @@
         <h2 class="term-title">HIG バイブランシー（Vibrancy）</h2>
         <div class="term-en">Apple HIG Vibrancy &amp; Translucent Materials</div>
         <p class="term-desc">Appleの公式デザイン規約（HIG）で定義されている「単なる半透明ぼかしではなく、背景の色味を鮮やかに増幅（saturate）させて前景の文字と調和させる」手法。コントロールセンターやmacOSサイドバーの核となる技術です。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>背景を単にぼかして半透明にするだけでなく、背景の色味を増幅して前景の文字やアイコンを鮮やかに見せる素材処理。背景に馴染みつつ、前景がくっきり読める状態を作る。</dd>
+            <dt>使いどころ</dt><dd>macOS・iOS のサイドバー、メニュー、コントロールセンターのような、背景が透けるパネル。Web では backdrop-filter の blur に saturate を足すと近い見た目になる。</dd>
+            <dt>注意点</dt><dd>ぼかしは描画コストが高く、低スペック端末で重くなる。透過を使うなら、背景が単色でも成立する代替スタイルを用意しておく。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-glass-button-figma.md" target="_blank" rel="noopener">Figmaで作るガラスボタン</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Apple HIG style UI with backdrop-filter: blur(20px) saturate(180%) vibrancy material</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -673,6 +732,15 @@
         <h2 class="term-title">グラスモーフィズム</h2>
         <div class="term-en">Glassmorphism</div>
         <p class="term-desc">すりガラスのように背景をぼかして透かし、細い半透明の白枠（ボーダー）でガラスの縁を表現する手法。macOS Big SurやWindows 11が採用し世界的な定着を果たしました。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>背景をぼかして透かし、細い半透明の白枠でガラスの縁を表現する。Figma では Glass エフェクト（屈折・深さ・曇り・分散・色味）を使い、グラデーション下地＋インナーシャドウ＋ハイライトを重ねて質感を作る。</dd>
+            <dt>使いどころ</dt><dd>鮮やかな背景（グラデーション、オーロラ、写真）の上に置くカードやボタン。複数の背景色の上に置いて見え方を確認するのが実務手順。</dd>
+            <dt>注意点</dt><dd>背景依存の表現なので、単体ではなく実画面で最終判断する。ボタンは Default／Hover／Pressed／Inactive／Processing／Error まで状態を定義して初めて完成する。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-glass-button-figma.md" target="_blank" rel="noopener">Figmaで作るガラスボタン</a><a href="notes/2026-10-26-glassmorphism-button-states.md" target="_blank" rel="noopener">ガラスボタンの状態設計</a><a href="notes/2026-10-26-ui-design-styles.md" target="_blank" rel="noopener">UIデザインスタイル15種</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Glassmorphism card with backdrop-filter: blur(12px), semi-transparent white border</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -690,6 +758,15 @@
         <h2 class="term-title">ニューモーフィズム</h2>
         <div class="term-en">Neumorphism (Soft UI)</div>
         <p class="term-desc">背景と要素をまったく同じ色にし、左上の白い光（ハイライト）と右下の暗い影（シャドウ）だけで、背景から押し出されたような凹凸を表現する手法。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>背景と要素を同じ色にして、明るい影（左上のハイライト）と暗い影（右下）の2つだけで、押し出された・押し込まれた凹凸を作る。インナーシャドウとアウターシャドウの使い分けが核。</dd>
+            <dt>使いどころ</dt><dd>装飾的な画面、状態の少ないUI部品（スイッチ、音量つまみ、電卓風UIなど）。DO は「さりげないハイライト・抑えた影・少ない色数」。</dd>
+            <dt>注意点</dt><dd>コントラストが低く、ボタンと背景の判別がつきにくい。DON'T は「深すぎる立体感・暗い影・高彩度の色」。操作が重要な画面では、輪郭や色で補う。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-neumorphism-guideline.md" target="_blank" rel="noopener">ニューモーフィズム・ガイドライン</a><a href="notes/2026-10-26-ui-design-styles.md" target="_blank" rel="noopener">UIデザインスタイル15種</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Neumorphism soft UI with dual light/dark box-shadows on matching background</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -706,6 +783,15 @@
         <h2 class="term-title">クレイモーフィズム</h2>
         <div class="term-en">Claymorphism</div>
         <p class="term-desc">粘土（クレイ）人形のようにもっちり・ぷっくりと膨らんだ3D風の質感。大きな角丸と、要素の内側に入れる2方向のインナーシャドウで作ります。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>立体感を作るのは影の「向き」。内側の左上に明るいインナーシャドウ、右下に暗いインナーシャドウを入れ、さらに外側にやわらかいドロップシャドウを足すと、ぷくっと膨らんで見える。ニューモーフィズムが背景と同色で凹凸を作るのに対し、こちらは色付きの面で膨らみを作る。</dd>
+            <dt>使いどころ</dt><dd>親しみやすいアプリ、子ども向け、イラスト調のアイコンやダッシュボードのアクセント。3Dキャラクターと合わせた世界観づくりにも向く。</dd>
+            <dt>注意点</dt><dd>影を重ねるため、要素が多いと画面全体が重く騒がしくなる。主役の数点に絞って使う。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-ui-design-styles.md" target="_blank" rel="noopener">UIデザインスタイル15種</a><a href="notes/2026-10-26-design-styles-20.md" target="_blank" rel="noopener">デザインスタイル20種</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Claymorphism 3D inflated button style with deep inner shadows and rounded corners</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -726,6 +812,15 @@
         <h2 class="term-title">スキューモーフィズム</h2>
         <div class="term-en">Skeuomorphism</div>
         <p class="term-desc">現実世界の革の縫い目、金属の光沢、物理スイッチの凹凸などをリアルに模倣する手法。スティーブ・ジョブズ時代の初期iPhone（iOS 6まで）の象徴的デザインです。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>革の縫い目、金属の光沢、物理スイッチの凹凸など、現実の物の質感をそのまま画面に写す手法。初期 iPhone（iOS 6 まで）が代表例で、「どう操作するか」を現物の見た目から直感的に伝えた。</dd>
+            <dt>使いどころ</dt><dd>初めてのデバイスに操作を教える場面、ゲームや音楽機材のUI（つまみ・フェーダー）など、現物のメタファーが価値になる場面。</dd>
+            <dt>注意点</dt><dd>表現が重く、画面ごとの作り込みコストが高い。iOS 7 で Apple がフラットデザインへ移行した理由もここにある。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-ui-design-styles.md" target="_blank" rel="noopener">UIデザインスタイル15種</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Tactile skeuomorphic UI with realistic metallic gradients, bevels, and physical textures</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -745,6 +840,15 @@
         <h2 class="term-title">フラットデザイン</h2>
         <div class="term-en">Flat Design</div>
         <p class="term-desc">影や立体感をすべて排除し、単色の面とタイポグラフィだけで構成する手法。2013年のiOS 7でAppleがスキューモーフィズムを捨てて全面採用し、世界の標準となりました。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>影・グラデーション・立体感を排除し、単色の面とタイポグラフィ、アイコンで構成する。2013 年の iOS 7 で Apple が全面採用して世界に広まった。</dd>
+            <dt>使いどころ</dt><dd>情報量が多く、軽さと拡張性が必要なアプリ・Webサイト。レスポンシブ対応や、デザインシステムとの相性がよい。</dd>
+            <dt>注意点</dt><dd>立体感がないぶん、ボタンかどうかが分かりにくくなりやすい。色・余白・ラベルで「押せる」ことを明示する。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-ui-design-styles.md" target="_blank" rel="noopener">UIデザインスタイル15種</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Clean 2D flat design UI with solid colors, no drop shadows, crisp typography</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -765,6 +869,15 @@
         <h2 class="term-title">マテリアルデザイン</h2>
         <div class="term-en">Material Design (Google)</div>
         <p class="term-desc">Googleが提唱したデザイン体系（AppleのHIGと双璧をなす規格）。フラットデザインをベースにしつつ、「紙の重なり（Z軸の高さ＝エレベーション）」を影で表現します。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>Google が提唱したデザイン体系。「紙とインク」のメタファーで、紙の重なり（Z軸の高さ＝エレベーション）を影で表し、動きや状態変化にも一貫したルールを持つ。</dd>
+            <dt>使いどころ</dt><dd>Android アプリ、Google 系サービス、ルールが整った体系をそのまま使いたい業務UI。Apple の HIG と並ぶ二大規格として、コンポーネントの標準形を学ぶのに適する。</dd>
+            <dt>注意点</dt><dd>ルールが明確なぶん、そのまま使うと「Google っぽい見た目」になる。ブランドに合わせて色・角丸・タイポグラフィで調整する。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-ui-design-styles.md" target="_blank" rel="noopener">UIデザインスタイル15種</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Google Material Design 3 style with elevation shadows, tonal surface colors, and FAB</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -790,6 +903,15 @@
         <h2 class="term-title">ベントーUI（弁当グリッド）</h2>
         <div class="term-en">Bento UI / Bento Grid</div>
         <p class="term-desc">日本の幕の内弁当の仕切りのように、大きさの異なる角丸長方形カードを隙間なく並べるレイアウト。Appleの新製品発表スライドから世界中に広まった現代の王道レイアウトです。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>大きさの異なる角丸の長方形を、隙間を揃えてきっちり並べる。1枚1枚のカードが「ひとつの話題」を担うので、情報の優先順位をカードの大きさで表せる。</dd>
+            <dt>使いどころ</dt><dd>製品の特長紹介、ダッシュボード、ポートフォリオ。FlowFin のダッシュボードのように、KPI→一覧／詳細→分析と視線の流れに合わせて大きさを配分する。</dd>
+            <dt>注意点</dt><dd>カードの見た目（角丸・余白・影）を統一しないとまとまりが崩れる。モバイルでは1列に畳む設計も同時に考える。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-ui-design-styles.md" target="_blank" rel="noopener">UIデザインスタイル15種</a><a href="notes/2026-10-26-dashboard-ui.md" target="_blank" rel="noopener">ダッシュボードUI（FlowFin）</a><a href="notes/2026-10-26-dashboard-rules.md" target="_blank" rel="noopener">ダッシュボード7ルール</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Apple-style Bento grid layout with asymmetric rounded cards and subtle borders</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -813,6 +935,14 @@
         <h2 class="term-title">メイソンリーレイアウト</h2>
         <div class="term-en">Masonry Layout</div>
         <p class="term-desc">「石積み（レンガ積み）」の意味。横幅を揃えつつ、縦の高さがバラバラなカードや写真を隙間なく噛み合わせるように詰めていくレイアウト（Pinterest型）。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>横幅は揃え、縦の高さはバラバラなカードを、隙間なく噛み合わせて詰めていく。Pinterest の画面が代表例で、縦に流れるスクロールと相性がよい。</dd>
+            <dt>使いどころ</dt><dd>写真・イラスト・投稿など、高さが不揃いなコンテンツの一覧。ギャラリーやインスピレーション集。</dd>
+            <dt>注意点</dt><dd>並び順が列ごとに分かれるため、時系列や順位のある情報には不向き。キーボード操作や読み上げでの順序も確認する。</dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Pinterest-style multi-column masonry grid layout with variable height cards</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -836,6 +966,14 @@
         <h2 class="term-title">スプリットスクリーン</h2>
         <div class="term-en">Split Screen Layout</div>
         <p class="term-desc">画面を左右50:50に分割し、左側に固定のビジュアル、右側に入力フォームやスクロールする記事を配置する構成。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>画面を左右（多くは 50:50）に分け、片側に固定のビジュアル、もう片側に入力フォームや記事を置く。見せたい世界観と、操作する場所が1画面で両立する。</dd>
+            <dt>使いどころ</dt><dd>ログイン・新規登録、OTP認証、サービス紹介のファーストビュー。</dd>
+            <dt>注意点</dt><dd>モバイルでは縦に積むなど、幅が狭いときの並べ替えを決めておく。ビジュアル側に情報を詰めすぎない。</dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>50/50 split screen layout with sticky visual on left and scrollable content on right</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -855,6 +993,14 @@
         <h2 class="term-title">ブロークングリッド</h2>
         <div class="term-en">Broken Grid / Asymmetric Layout</div>
         <p class="term-desc">整然としたグリッドの境界線をあえて崩し、画像の上にテキストボックスを少し重ねたり位置をずらしたりして、雑誌のような洗練された動きを出す手法。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>整然としたグリッドをあえて崩し、画像にテキストを重ねたり、位置をずらしたりして、雑誌のような動きと緊張感を出す。基本のグリッドがあるからこそ、崩しが効く。</dd>
+            <dt>使いどころ</dt><dd>ブランドサイト、ポートフォリオ、キャンペーンページなど、印象に残したい画面。</dd>
+            <dt>注意点</dt><dd>崩し方を間違えると読みにくくなる。重なる文字の可読性と、モバイルでの崩れに注意する。</dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Editorial broken grid layout with overlapping cards and asymmetric positioning</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -875,6 +1021,15 @@
         <h2 class="term-title">ヒーローセクション &amp; フルブリード</h2>
         <div class="term-en">Hero Section / Full Bleed</div>
         <p class="term-desc">ページ最上部（ファーストビュー）に配置する巨大な看板領域。余白を作らず画面の左右端まで背景を広げる手法を「フルブリード」と呼びます。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>ページ最上部（ファーストビュー）の巨大な看板領域。フルブリードは余白を作らず、背景を画面の左右端まで広げる手法。第一印象の勝負どころで、価値提案とCTAをここで示す。</dd>
+            <dt>使いどころ</dt><dd>LP、サービス紹介、製品ページ。見出し・短い説明・主ボタンの3点で「何のサイトで、次に何をするか」を伝える。</dd>
+            <dt>注意点</dt><dd>弱い見出し、不明確なCTAは古く見える原因。見た目より「次の行動の明確さ」が成果を左右する。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-website-conversion.md" target="_blank" rel="noopener">Webサイトの見た目と成果</a><a href="notes/2026-10-26-website-redesign-signs.md" target="_blank" rel="noopener">リニューアルのサイン</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Full-bleed hero section with bold headline, subtitle, and prominent CTA button</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -895,6 +1050,15 @@
         <h2 class="term-title">ネオ・ブルータリズム</h2>
         <div class="term-en">Neo-Brutalism</div>
         <p class="term-desc">くっきりした黒い太枠（border）、ぼかしのない真っ黒なベタ影（ハードシャドウ）、高彩度の原色背景を組み合わせた、ステッカーのように力強いトレンド。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>黒い太枠、ぼかしのないハードシャドウ、高彩度の原色。ブルータリズム（装飾を排した粗い表現）に、ポップさを足した現代版。</dd>
+            <dt>使いどころ</dt><dd>個性を強く出したいスタートアップ、クリエイター系サイト、ステッカー的な小物UI。</dd>
+            <dt>注意点</dt><dd>色数と枠線を一貫させないと雑然とする。可読性のため、文字色と背景色のコントラストは確認する。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-ui-design-styles.md" target="_blank" rel="noopener">UIデザインスタイル15種</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Neo-brutalism UI with thick 3px black borders, hard offset shadows, vibrant colors</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -911,6 +1075,15 @@
         <h2 class="term-title">オーロラUI / メッシュグラデーション</h2>
         <div class="term-en">Aurora UI / Mesh Gradient</div>
         <p class="term-desc">複数の淡い色が境界線なく溶け合い、オーロラのようにぼんやりと発光する背景表現。グラスモーフィズムの背面として抜群の相性を持ちます。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>作り方は、ぼかした大きな色の円を複数重ねる方法と、メッシュグラデーション（格子点ごとに色を指定）の2種類が主流。色相が近い色を選ぶとなめらかになり、離れた色だと濁りやすい。</dd>
+            <dt>使いどころ</dt><dd>グラスモーフィズムの背面、ヒーロー背景、ダッシュボードのアクセント。ボカシの上に置くカードがよく映える。</dd>
+            <dt>注意点</dt><dd>背景が主張しすぎると文字が読みにくい。文字を載せる面にはコントラストを確保し、画像として重くなりすぎないよう圧縮する。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-design-styles-20.md" target="_blank" rel="noopener">デザインスタイル20種</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Aurora mesh gradient background with soft blurred radial color blobs</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -930,6 +1103,15 @@
         <h2 class="term-title">Y2K / レトロフューチャー</h2>
         <div class="term-en">Y2K Aesthetic / Retro-Futurism</div>
         <p class="term-desc">2000年前後の初期インターネット、旧OSのウィンドウ枠、ピクセルフォント、メタリックシルバーやネオンピンクを現代風に再解釈した表現。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>特徴は4点：ピクセルフォントとビットマップ調の装飾、旧OSのウィンドウ枠やボタンの再現、メタリックシルバーのグラデーション、ネオンピンク・ライムなどの原色。「懐かしさ」と「近未来感」が同居するので、デザイン20種のY2Kではクローム質感のグラフィックとして登場する。</dd>
+            <dt>使いどころ</dt><dd>若者向けブランド、音楽・ファッション系、イベントサイト。</dd>
+            <dt>注意点</dt><dd>雰囲気に寄せるほど情報整理が犠牲になりやすい。装飾は背景や見出しに留め、本文は読みやすさを優先する。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-ui-design-styles.md" target="_blank" rel="noopener">UIデザインスタイル15種</a><a href="notes/2026-10-26-design-styles-20.md" target="_blank" rel="noopener">デザインスタイル20種</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Y2K retro-futuristic UI with pixel fonts, bevel window frames, and cyber neon accents</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -949,6 +1131,15 @@
         <h2 class="term-title">スイススタイル / ミニマリズム</h2>
         <div class="term-en">Swiss Style / International Typographic</div>
         <p class="term-desc">装飾を削ぎ落とし、厳密なグリッド線、大きな余白、そしてサンセリフ体（ゴシック体）の文字の大小コントラストだけで魅せる知的で普遍的な様式。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>厳密なグリッド、大きな余白、サンセリフ体の大小コントラストだけで構成する。装飾ではなく、整列と階層で見せる。UIレイアウトの祖先にあたる様式。</dd>
+            <dt>使いどころ</dt><dd>情報を正確に伝えたいサイト、ドキュメント、ダッシュボード。デザイン原則の Alignment（整列）や Hierarchy（階層）の基礎練習にもなる。</dd>
+            <dt>注意点</dt><dd>個性が出にくい。フォントのウェイトとサイズの差、1色のアクセントで特徴を作る。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-design-principles.md" target="_blank" rel="noopener">デザイン原則</a><a href="notes/2026-10-26-design-styles-20.md" target="_blank" rel="noopener">デザインスタイル20種</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Swiss international typographic style with strict grid lines and bold sans-serif hierarchy</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -970,6 +1161,15 @@
         <h2 class="term-title">ダークUI / ローライトUI</h2>
         <div class="term-en">Dark UI / Low-Light Interface</div>
         <p class="term-desc">ダークグレーを基調とし、影の代わりに「手前に浮き出るカードほど少し明るいグレーにする」ことで奥行きを表現する設計手法。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>ダークグレーを基調にし、影の代わりに「手前に浮くカードほど少し明るいグレー」にして奥行きを表す。純黒より、少し持ち上げたグレーのほうが目に優しい。</dd>
+            <dt>使いどころ</dt><dd>夜間利用、動画・音楽・開発ツール、長時間使うアプリ。重要パネルだけを濃くするなど、色に役割を持たせると画面が締まる。</dd>
+            <dt>注意点</dt><dd>純白の文字は眩しく感じやすい。彩度の高い色は暗背景で強く光るので、使いすぎない。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-dashboard-ui.md" target="_blank" rel="noopener">ダッシュボードUI（FlowFin）</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Modern dark mode UI using zinc/slate surface elevation and 1px subtle borders</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -992,6 +1192,15 @@
         <h2 class="term-title">メニューアイコン4兄弟 &amp; ドロワー</h2>
         <div class="term-en">Hamburger / Kebab / Meatballs / Bento Menu</div>
         <p class="term-desc">三本線は「ハンバーガー」、縦三点は「ケバブ」、横三点は「ミートボール」、9つの点は「弁当メニュー」。押した時に横から滑り出るパネルを「ドロワー（引き出し）」と呼びます。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>三本線＝ハンバーガー、縦三点＝ケバブ、横三点＝ミートボール、九つの点＝弁当メニュー。押すと横から出るパネルがドロワー（元の画面は見えたまま）。</dd>
+            <dt>使いどころ</dt><dd>ハンバーガー／ドロワーはナビゲーションの格納、ケバブ／ミートボールは行ごとの追加操作の入口。</dd>
+            <dt>注意点</dt><dd>格納すると見つけにくくなる。重要なナビは常時表示し、4〜5個以内ならボトムナビゲーションも検討する。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-overlay-types-6.md" target="_blank" rel="noopener">オーバーレイ6種</a><a href="notes/2026-10-26-dashboard-ui.md" target="_blank" rel="noopener">ダッシュボードUI（FlowFin）</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Slide-out navigation drawer triggered by hamburger/kebab menu icon</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -1016,6 +1225,15 @@
         <h2 class="term-title">モーダル（モーダルウィンドウ）</h2>
         <div class="term-en">Modal / Dialog</div>
         <p class="term-desc">背景を暗く覆い（バックドロップ）、画面中央にポップアップして、ユーザーが操作を完了するまで後ろの画面をロックする確認ウィンドウ。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>3つの要素で成り立つ：①背景を暗く覆うバックドロップ、②中央に出るダイアログ、③閉じるまで後ろの操作をロックする挙動。オーバーレイ6種の中では「割り込みが強い」側で、Tooltip→Popover→Drawer→Bottom Sheet→Modal→Full-screen の並びの後半にあたる。</dd>
+            <dt>使いどころ</dt><dd>削除の確認など、取り返しのつかない決断。「割り込み度は決断の重さに合わせる」が選定の基準。</dd>
+            <dt>注意点</dt><dd>乱用するとユーザーの作業を止め続ける。軽い情報はツールチップ、フォームはドロワーなど他の部品で代替する。閉じる導線も必ず見せる。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-overlay-types-6.md" target="_blank" rel="noopener">オーバーレイ6種</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Centered modal dialog with blurred dark backdrop overlay</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -1039,6 +1257,15 @@
         <h2 class="term-title">ボトムシート</h2>
         <div class="term-en">Bottom Sheet</div>
         <p class="term-desc">スマホ画面の下端からせり上がってくるパネル。親指で楽に操作・スワイプ閉じができるため、モバイルUIではモーダル以上に多用されます。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>画面下端からせり上がるパネル。親指の届く範囲で操作でき、下スワイプで閉じられる。モバイルのアクション群や選択肢の提示に適する。</dd>
+            <dt>使いどころ</dt><dd>共有・並べ替え・フィルタ・メニューなど、複数の選択肢を出す場面。</dd>
+            <dt>注意点</dt><dd>高さの段階（半分・全体）と、閉じる方法（スワイプ・×・背景タップ）を決めておく。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-overlay-types-6.md" target="_blank" rel="noopener">オーバーレイ6種</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Mobile-friendly slide-up bottom sheet with top drag handle indicator</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -1058,6 +1285,14 @@
         <h2 class="term-title">トースト通知 / スナックバー</h2>
         <div class="term-en">Toast / Snackbar</div>
         <p class="term-desc">トースターからパンが飛び出すように、画面の隅に数秒だけ現れて自動的に消える通知。作業を邪魔せずに完了結果を伝えます。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>画面の隅に数秒だけ出て自動で消える通知。作業を止めずに、保存完了や送信完了などの結果を伝える。</dd>
+            <dt>使いどころ</dt><dd>保存・コピー・送信など、軽い成功通知。この図鑑のコピー完了表示も同じ仕組み。</dd>
+            <dt>注意点</dt><dd>短時間で消えるので、重要なエラーや取り消せない操作の通知には向かない。「元に戻す」操作を付けると親切。</dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Non-intrusive floating toast notification at bottom-right with auto-dismiss</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -1083,6 +1318,15 @@
         <h2 class="term-title">パンくず / ピル（チップ） / コマンドパレット</h2>
         <div class="term-en">Breadcrumbs / Pill Chips / Command Palette</div>
         <p class="term-desc">現在地階層を示す「パンくずリスト」、カプセル型のタグ「ピル（チップ）」、そしてショートカット（⌘K）で呼び出す万能検索窓「コマンドパレット」です。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>パンくずは現在地の階層、ピル（チップ）はカプセル型のタグ・フィルタ、コマンドパレットは ⌘K などで呼び出す万能検索窓。いずれも「迷わせない・探せる」ための部品。</dd>
+            <dt>使いどころ</dt><dd>階層が深いサイト、絞り込みの多い一覧、機能が多い業務ツール。</dd>
+            <dt>注意点</dt><dd>コマンドパレットは存在を知らないと使われない。入口（ショートカット表示や検索ボタン）を併設する。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-dashboard-ui.md" target="_blank" rel="noopener">ダッシュボードUI（FlowFin）</a><a href="notes/2026-10-26-dashboard-rules.md" target="_blank" rel="noopener">ダッシュボード7ルール</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Cmd+K command palette modal, breadcrumb navigation, and rounded pill filter chips</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -1110,6 +1354,15 @@
         <h2 class="term-title">スケルトンスクリーン</h2>
         <div class="term-en">Skeleton Screen / Shimmer Loading</div>
         <p class="term-desc">データ読み込み中にスピナーを出す代わりに、これから表示されるカードの骨組み（グレーの枠）に光が走るシマー効果を表示して体感待ち時間を減らす手法。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>データ読み込み中、これから表示される内容の骨組み（グレーの枠）を先に出し、光が走るシマー効果で「読み込み中」を示す。スピナーより、全体の形を先に見せられる。</dd>
+            <dt>使いどころ</dt><dd>リストやカード、ダッシュボードなど、レイアウトが決まっている画面の初回読み込み。</dd>
+            <dt>注意点</dt><dd>実際の表示とレイアウトがずれると、読み込み完了時に画面が跳ねる。骨組みは実コンテンツと同じ寸法にする。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-loader-animations-figma.md" target="_blank" rel="noopener">ローダーアニメーション</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Skeleton loading placeholders with animated shimmer wave effect</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -1131,6 +1384,14 @@
         <h2 class="term-title">エンプティステート（空の状態）</h2>
         <div class="term-en">Empty State / Zero State</div>
         <p class="term-desc">データが0件のときの画面。ただ空白にするのではなく、イラストと「次に何をすべきか（新規作成ボタンなど）」を配置してユーザーの離脱を防ぎます。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>データが0件の画面。空白のまま放置せず、イラストと短い説明、そして次の一手（新規作成ボタンなど）を配置して、離脱を防ぐ。</dd>
+            <dt>使いどころ</dt><dd>初回利用、検索結果なし、フィルタで該当なし。状況ごとに文言を変えると親切。</dd>
+            <dt>注意点</dt><dd>原因の違い（まだ無い／絞り込みの結果／エラー）を区別する。エラーの場合は再試行の導線を出す。</dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Friendly empty state illustration with clear onboarding message and primary CTA button</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -1155,6 +1416,15 @@
         <h2 class="term-title">プログレッシブ・ディスクロージャー</h2>
         <div class="term-en">Progressive Disclosure (段階的開示)</div>
         <p class="term-desc">最初からすべての複雑な設定を画面に並べるのではなく、最初は最小限の基本項目だけを見せ、必要に応じて段階的に詳細を開示する設計原則。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>最初は基本項目だけ見せ、必要に応じて詳細を段階的に開示する。選択肢を最初から並べないので、迷いと認知負荷が減る。</dd>
+            <dt>使いどころ</dt><dd>設定画面、フォーム、料金表、ナビゲーション。リニューアルのサインにある「選択肢が多すぎるナビ」の解決策でもある。</dd>
+            <dt>注意点</dt><dd>隠しすぎると重要な機能が見つからなくなる。「詳細設定」など開く手がかりを分かりやすく置く。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-website-redesign-signs.md" target="_blank" rel="noopener">リニューアルのサイン</a><a href="notes/2026-10-26-website-conversion.md" target="_blank" rel="noopener">Webサイトの見た目と成果</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Progressive disclosure UI using collapsible accordion sections for advanced settings</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -1181,6 +1451,15 @@
         <h2 class="term-title">リキッドグラス</h2>
         <div class="term-en">Liquid Glass</div>
         <p class="term-desc">AppleがiOS 26で採用した半透明素材表現。背景の屈折（Refraction）や光の反射をリアルタイムにシミュレートし、ガラスそのものが光学的に振る舞う。FigmaのGlassエフェクト（屈折・深さ・曇り・分散）でも再現が進む、グラスモーフィズムの進化形。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>従来のグラスモーフィズムは「背景をぼかして透かす」静的な表現。リキッドグラスはそこへ屈折（Refraction）と光の反射を加え、ガラスが背後のコンテンツを歪めて映し、動きに応じて光も変わる。Figma の Glass エフェクトにも屈折・分散・曇りの設定がある。</dd>
+            <dt>使いどころ</dt><dd>ツールバー、タブバー、ボタン、シートなど、前景のコントロール層。コンテンツ（背景側）と操作（ガラス側）を層で分けられる。</dd>
+            <dt>注意点</dt><dd>Web では完全な再現は難しく、近似にとどまる。可読性と、背景が単色・動画・写真のどれでも崩れないかを確認する。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-glass-button-figma.md" target="_blank" rel="noopener">Figmaで作るガラスボタン</a><a href="notes/2026-10-26-glassmorphism-button-states.md" target="_blank" rel="noopener">ガラスボタンの状態設計</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Liquid Glass material with light refraction, specular highlights and frosted translucency</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -1207,6 +1486,15 @@
         <h2 class="term-title">ボトムナビゲーション</h2>
         <div class="term-en">Bottom Navigation</div>
         <p class="term-desc">モバイルアプリ下部の主要ナビゲーション。Minimal Clean、Glassmorphism、Floating（浮遊型）、Pill Highlight、Center FAB、Dock Styleなど11種のスタイルがある。設計のコツは「項目は4〜5個まで」「アイコンスタイルを統一する」こと。親指の届く範囲に主要導線を置くモバイルの基本形。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>スタイルは大きく3系統に分けると整理しやすい。①質感系（Glassmorphism、Neumorphism、Gradient Bold）、②形状系（Floating、Curved Background、Dock Style、Center FAB）、③選択状態の見せ方（Pill Highlight、Tab with Indicator、Outline Icons）。Minimal Clean は何も足さない基準形。</dd>
+            <dt>使いどころ</dt><dd>主要な画面を 1 タップで切り替えたいアプリ。選択中は、ピルやインジケーターなど形で示すと分かりやすい。</dd>
+            <dt>注意点</dt><dd>項目は 4〜5 個まで。アイコンのスタイルは統一する。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-instagram-ui.md" target="_blank" rel="noopener">ダークアンカー＆ボトムナビ11種</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Mobile bottom navigation bar with 4 items, pill-shaped active indicator, unified icon style</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -1229,6 +1517,15 @@
         <h2 class="term-title">ツールチップ & ポップオーバー</h2>
         <div class="term-en">Tooltip / Popover</div>
         <p class="term-desc">オーバーレイ（重ね表示）の軽い側の2種。ツールチップはアイコンへの短いテキストヒントのみ。ポップオーバーは対象要素に紐づいて開くクイックアクション（編集・複製・削除など）で、外側クリックで閉じる。選定基準は「割り込み度×決断の重さ」で、重い確認にはモーダルを使う。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>オーバーレイの軽い側の 2 種。ツールチップは、ホバーやフォーカスで出るテキストだけの短いヒント。ポップオーバーは、対象要素に紐づいて開くクイックアクション（Edit／Duplicate／Delete など）で、外側をクリックすると閉じる。</dd>
+            <dt>使いどころ</dt><dd>アイコンだけのボタンの説明、行ごとの操作メニュー。割り込み度は低く、画面を止めない。</dd>
+            <dt>注意点</dt><dd>モバイルにはホバーがない。必要な情報はツールチップだけに頼らず、ラベルや別の導線でも示す。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-overlay-types-6.md" target="_blank" rel="noopener">オーバーレイ6種</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Tooltip hint on icon hover and anchored popover menu with quick actions, closes on outside click</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -1258,6 +1555,15 @@
         <h2 class="term-title">マスター・ディテール</h2>
         <div class="term-en">Master-Detail Layout</div>
         <p class="term-desc">左の一覧（マスター）で項目を選ぶと、右に詳細（ディテール）が出る2ペイン構成。請求書管理やメールなど業務UIの王道で、大量の項目を「探す→見る→操作する」の流れで扱える。財務ダッシュボードFlowFinの実例では、KPIカード群の下にこのパネルを主役として配置していた。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>構造は「左：一覧（絞り込み・検索つき）／中央〜右：選んだ項目の詳細とアクション」。一覧で選んだ項目だけ詳細が切り替わるので、画面遷移なしに多くの項目を見比べられる。FlowFin では、請求書の一覧→INV-1042 の明細→ Download Invoice / Send Reminder の流れがこれにあたる。</dd>
+            <dt>使いどころ</dt><dd>請求書管理、メール、顧客管理など大量の項目を扱う業務UI。FlowFin の請求書パネルが実例。</dd>
+            <dt>注意点</dt><dd>モバイルでは一覧→詳細の 2 画面に分ける。選択状態（今どれを見ているか）をはっきり示す。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-dashboard-ui.md" target="_blank" rel="noopener">ダッシュボードUI（FlowFin）</a><a href="notes/2026-10-26-dashboard-rules.md" target="_blank" rel="noopener">ダッシュボード7ルール</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Master-detail two-pane layout: selectable list on the left, detail panel with actions on the right</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -1283,6 +1589,15 @@
         <h2 class="term-title">マキシマリズム</h2>
         <div class="term-en">Maximalism</div>
         <p class="term-desc">ミニマリズムの対極で、色・図形・文字情報をあえて盛り込み、密度とエネルギーで魅せる表現。音楽イベントのフライヤーなど「賑やかさ自体が価値」の場面で効く。要素を足すほど階層（ヒエラルキー）の設計が難しくなるため、主役を1つ決めてから盛るのが実践上のコツ。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>ミニマリズムが「引き算」なら、マキシマリズムは「足し算」。色・図形・文字・写真を重ねて密度を上げるが、無秩序ではなく、大きさ・色の差で視線の順番を作るのが前提。ポスター／グラフィック側のスタイルとして、デザインスタイル20種でも2番目に登場する。</dd>
+            <dt>使いどころ</dt><dd>イベント、音楽、ファッション、キャンペーンなど、勢いと個性を前面に出したいとき。</dd>
+            <dt>注意点</dt><dd>盛るほど視線の入口が分からなくなる。大きさや色の差で階層を作り、主役を1つ決めておく。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-ui-design-styles.md" target="_blank" rel="noopener">UIデザインスタイル15種</a><a href="notes/2026-10-26-design-styles-20.md" target="_blank" rel="noopener">デザインスタイル20種</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Maximalist poster design with dense colorful blocks, bold typography and layered elements</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -1306,6 +1621,15 @@
         <h2 class="term-title">エディトリアルデザイン</h2>
         <div class="term-en">Editorial Design</div>
         <p class="term-desc">雑誌編集の組版をWebやアプリに持ち込む表現。大きなセリフ体の見出し、罫線、段組、余白のリズムで「読ませる」画面を作る。ブランドタイポグラフィの研究（VOGUE=Didotなど）と相性が良く、コンテンツ中心のメディアやブランドサイトで多用される。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>組版の4つの道具：①大きなセリフ体の見出し、②細い罫線で区切る、③段組（複数カラム）、④余白によるリズム。Vogue のロゴに使われる Didot は、縦画が太く横画が極細という強いコントラストの書体で、字形そのものが世界観になる。</dd>
+            <dt>使いどころ</dt><dd>記事・特集・ブランドストーリー、ラグジュアリー系。フォントペアリングの Playfair Display＋Inter などと相性がよい。</dd>
+            <dt>注意点</dt><dd>凝った組版はモバイルで崩れやすい。段組・行長・行間を、幅ごとに確認する。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-typography.md" target="_blank" rel="noopener">タイポグラフィ</a><a href="notes/2026-10-26-ui-design-styles.md" target="_blank" rel="noopener">UIデザインスタイル15種</a><a href="notes/2026-10-26-design-styles-20.md" target="_blank" rel="noopener">デザインスタイル20種</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Editorial magazine layout with large serif headline, rules, multi-column text and generous whitespace</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -1327,6 +1651,15 @@
         <h2 class="term-title">サイバーパンク</h2>
         <div class="term-en">Cyberpunk</div>
         <p class="term-desc">暗い背景にネオンカラー（シアンやマゼンタの発光）を効かせた近未来の世界観。ゲームやテック系の演出で人気が高く、グロー（発光）表現と等幅フォントの組み合わせが記号になる。Y2K／レトロフューチャーと隣接するが、より暗く・鋭いトーンが特徴。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>暗い背景に、シアンやマゼンタのネオン発光（グロー）と、等幅フォントを組み合わせた近未来の世界観。</dd>
+            <dt>使いどころ</dt><dd>ゲーム、テック系、音楽・イベント系。ダークUIの上に、アクセントを 1〜2 色だけ光らせると効く。</dd>
+            <dt>注意点</dt><dd>発光が強いと目が疲れ、長文が読みにくい。装飾は見出しやボタンに限り、本文は落ち着いた色で。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-ui-design-styles.md" target="_blank" rel="noopener">UIデザインスタイル15種</a><a href="notes/2026-10-26-design-styles-20.md" target="_blank" rel="noopener">デザインスタイル20種</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Cyberpunk interface with neon cyan and magenta glow on near-black background, monospace accents</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -1350,6 +1683,15 @@
         <h2 class="term-title">マイクロインタラクション</h2>
         <div class="term-en">Micro-interactions</div>
         <p class="term-desc">入力・タップなど小さな操作への細かい反応の設計。OTP（ワンタイムコード）入力の自動フォーカス移動、完了時のチェック＋粒子アニメーションなど、「気持ちよさ」を作る要素の総称。成功状態だけでなく、誤入力や期限切れなどエラー状態まで設計して初めて完成する。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>1つの反応は「きっかけ→反応→フィードバック」で考える。OTP入力の例では、数字を入れる（きっかけ）→次の枠へ自動でフォーカス移動（反応）→完了時にグリッド状のアニメ→緑のチェックと粒子（フィードバック）。入力の摩擦を減らし、義務的な手続きにも報酬感を作る。</dd>
+            <dt>使いどころ</dt><dd>認証、フォーム送信、ボタンの状態変化、いいね・保存など。</dd>
+            <dt>注意点</dt><dd>成功時だけでなくエラー（誤入力・期限切れ・再送）も設計して初めて完成する。派手さより、使いやすさの改善になっているかを問う。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-otp-verification-ui.md" target="_blank" rel="noopener">OTP認証UI</a><a href="notes/2026-10-26-glassmorphism-button-states.md" target="_blank" rel="noopener">ガラスボタンの状態設計</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Micro-interactions: auto-advancing OTP inputs and a celebratory success check animation with particles</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -1372,6 +1714,15 @@
         <h2 class="term-title">ローダー / プログレスインジケーター</h2>
         <div class="term-en">Loader / Progress Indicator</div>
         <p class="term-desc">読み込みの待ち時間に見せる進捗表現。円弧が25%→100%と伸びる円形ローダーやプログレスバーなど、進捗が見える形は同じ待ち時間でも短く感じさせる。Figmaではバリアントで円弧の伸びをアニメーション化できる。静止画で中身の形だけ見せるスケルトンスクリーンとは役割が違う。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>種類は大きく3つ：①終わりが分からないスピナー、②割合を示すプログレスバー・円形、③中身の形を先に見せるスケルトン。円形ローダーは、正円→一部が欠けたリング（円弧）→複製→Variants で円弧を 25%→100% に伸ばす手順で、コードなしに作れる。</dd>
+            <dt>使いどころ</dt><dd>ボタン押下後の処理中（PROCESSING 状態）、ファイル送信、ページ遷移。</dd>
+            <dt>注意点</dt><dd>進捗が分からないスピナーは不安を招く。長い待ち時間には、割合や残り時間、スケルトンを併用する。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-loader-animations-figma.md" target="_blank" rel="noopener">ローダーアニメーション</a><a href="notes/2026-10-26-glassmorphism-button-states.md" target="_blank" rel="noopener">ガラスボタンの状態設計</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Circular loading spinner and progress bar showing percentage, smooth arc animation</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -1395,6 +1746,15 @@
         <h2 class="term-title">視覚階層と視線誘導（F/Zパターン）</h2>
         <div class="term-en">Visual Hierarchy / Eye-tracking Patterns</div>
         <p class="term-desc">大きさ・色・配置で情報の優先順位を作る原則。人の視線はWebではFパターン、視覚要素の多い画面ではZパターンで動くとされ、重要な情報やCTAはその軌道上に置くと伝わりやすい。階層が弱いサイトは「古く、信頼できない」印象の原因にもなる。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>階層を作る手段は大きさ・色・配置・余白の4つ。F パターンは、上の横線→少し下の短い横線→左の縦線の順で、情報量の多いページで見られる読み方。Z パターンは、左上→右上→左下→右下とジグザグに見る読み方で、LP のようにシンプルな画面に向く。</dd>
+            <dt>使いどころ</dt><dd>LP、ダッシュボード、ヒーロー。重要指標は最も目立つ位置に（ダッシュボードのルール1）。</dd>
+            <dt>注意点</dt><dd>目立たせる要素を増やすと階層が崩れる。主役は1つに絞る。ヒエラルキーの弱さは「古さ」の正体にもなる。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-design-principles.md" target="_blank" rel="noopener">デザイン原則</a><a href="notes/2026-10-26-uiux-designer-roadmap.md" target="_blank" rel="noopener">UI/UXデザイナーへの道筋</a><a href="notes/2026-10-26-dashboard-rules.md" target="_blank" rel="noopener">ダッシュボード7ルール</a><a href="notes/2026-10-26-website-redesign-signs.md" target="_blank" rel="noopener">リニューアルのサイン</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Visual hierarchy with oversized headline and F-pattern / Z-pattern eye flow layout</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -1418,6 +1778,15 @@
         <h2 class="term-title">デザインシステム</h2>
         <div class="term-en">Design System</div>
         <p class="term-desc">ボタンや入力欄などのコンポーネント、色や余白のトークン、使い方のルールを一式そろえた「一貫性の枠組み」。デザインと開発が同じ部品を共有することで、画面が増えても品質と速度が落ちない。UI/UXデザイナーの学習ロードマップでも基礎の次に置かれる重要ステップ。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>構成は3層：①トークン（色・文字・余白・角丸などの値）、②コンポーネント（ボタン・入力欄・バッジなど、全状態つき）、③使い方のルール（いつ・どこで使うか）。例として、ボタンは Default／Hover／Pressed／Inactive／Processing／Error まで揃えて、はじめて部品として完成する。</dd>
+            <dt>使いどころ</dt><dd>複数画面・複数人で作るプロダクト。ボタンの全状態、ステータスバッジ、色の役割（成功・警告・エラー）を決めておく。</dd>
+            <dt>注意点</dt><dd>作って終わりではなく、運用が要。ルールが多すぎると守られなくなるので、まず色・文字・余白・ボタンから整える。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-uiux-designer-roadmap.md" target="_blank" rel="noopener">UI/UXデザイナーへの道筋</a><a href="notes/2026-10-26-glassmorphism-button-states.md" target="_blank" rel="noopener">ガラスボタンの状態設計</a><a href="notes/2026-10-26-premium-color-combos.md" target="_blank" rel="noopener">プレミアム配色コンビ</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Design system component library with buttons, inputs, cards and color tokens, consistent styling</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -1440,6 +1809,15 @@
         <h2 class="term-title">フォントペアリング</h2>
         <div class="term-en">Font Pairing</div>
         <p class="term-desc">見出し用と本文用のフォントの組み合わせ設計。基本形は「見出しに個性のあるフォント、本文に読みやすいサンセリフ（Inter、DM Sansなど）」。例：Playfair Display＋Inter（ラグジュアリー）、Space Grotesk＋Inter（テック）、Sora＋DM Sans（AI系）。ブランドロゴもタイポグラフィでできていることが多い（Apple=Myriad Pro、VOGUE=Didot）。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>組み合わせの型は3つ。①個性の見出し＋読みやすい本文（最も基本）、②セリフ体の見出し＋サンセリフ体の本文（雑誌風）、③同じ家族の太さ違い（ExtraBold＋Regular）。Inter と DM Sans は本文役として何度も登場し、迷ったらここから選ぶのが実務的。</dd>
+            <dt>使いどころ</dt><dd>用途別の例：Playfair Display＋Inter（ラグジュアリー）、Space Grotesk＋Inter（テック／SaaS）、DM Sans（プロダクト／ダッシュボード）、Manrope＋Open Sans（フィンテック／分析）、Sora＋DM Sans（AI／スタートアップ）、Lora＋DM Sans（コンテンツ）、Outfit＋Inter（モバイル／EC）、Plus Jakarta Sans（SaaS）。</dd>
+            <dt>注意点</dt><dd>フォント数を増やしすぎない（通常は 2 種まで）。日本語表示では欧文フォントとの混植のバランスも確認する。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-typography.md" target="_blank" rel="noopener">タイポグラフィ</a><a href="notes/2026-10-26-design-resources-50.md" target="_blank" rel="noopener">学習リソース50選</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Font pairing: elegant serif display headline with clean sans-serif body text (Inter)</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -1463,6 +1841,15 @@
         <h2 class="term-title">配色ハーモニー</h2>
         <div class="term-en">Color Harmony</div>
         <p class="term-desc">色相環上の位置関係で配色を決めるルール。代表は5種：モノクロマティック（同系色）、類似色、補色、トライアド（3色）、分裂補色。感覚ではなく「まずどのハーモニーを土台にするか」を決めるとパレット作りが迷走しない。決めた後はコントラスト比チェックで可読性を検証する。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>5つのハーモニーは、色相環（12分割）上の位置関係で決まる。同系色＝同じ色相、類似色＝隣り合う色、補色＝正反対の色、トライアド＝正三角形に並ぶ3色、分裂補色＝1色と「その補色の両隣」の組み合わせ。補色は強く目立ち、類似色はなじむので、強弱の使い分けに向く。</dd>
+            <dt>使いどころ</dt><dd>まず 5 つのうちどれを土台にするかを選び、そこから彩度・明度で調整する。暖色は食欲・行動、寒色は信頼・落ち着き、と用途で温度感を使い分ける。</dd>
+            <dt>注意点</dt><dd>配色を決めたら、コントラスト比（WebAIM Contrast Checker など）で可読性を確認する。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-color-theory.md" target="_blank" rel="noopener">色彩理論ガイド</a><a href="notes/2026-10-26-premium-color-combos.md" target="_blank" rel="noopener">プレミアム配色コンビ</a><a href="notes/2026-10-26-trendy-color-palettes.md" target="_blank" rel="noopener">トレンドUIカラーパレット</a><a href="notes/2026-10-26-color-palettes-vibe.md" target="_blank" rel="noopener">色が作る雰囲気パレット</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Color harmony wheel showing complementary, analogous and triadic color schemes with hex codes</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -1485,6 +1872,15 @@
         <h2 class="term-title">色の3属性（色相・彩度・明度）</h2>
         <div class="term-en">Hue / Saturation / Brightness</div>
         <p class="term-desc">色を3つの軸で捉える考え方。色相＝色の種類、彩度＝鮮やかさ、明度＝明るさ。同じダッシュボードでも属性を変えると青→緑→紫のように印象が変わる。淡色パレット作りやダークモード調整など、配色の微調整はこの3軸を分けて考えるのが基本。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>色は 3 つの軸で捉える。色相（Hue）＝色の種類、彩度（Saturation）＝鮮やかさ、明度（Brightness）＝明るさ。同じダッシュボードでも、軸を変えるだけで印象が大きく変わる。</dd>
+            <dt>使いどころ</dt><dd>色調整の基本。1 度に 1 軸だけ動かすと、何が印象を変えたのかが分かる。</dd>
+            <dt>注意点</dt><dd>色相が同じでも、明度・彩度で印象も可読性も変わる。見た目だけで判断せず、数値で確認する。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-color-theory.md" target="_blank" rel="noopener">色彩理論ガイド</a><a href="notes/2026-10-26-uiux-designer-roadmap.md" target="_blank" rel="noopener">UI/UXデザイナーへの道筋</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Color picker showing hue, saturation and brightness sliders applied to a UI dashboard</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -1510,6 +1906,15 @@
         <h2 class="term-title">ダークアンカー</h2>
         <div class="term-en">Dark Anchor (Palette Technique)</div>
         <p class="term-desc">淡い色だけで組んだパレットに、濃い色を1色だけ入れて全体を引き締める配色テクニック。例：Serum Blush #F8D7DA などの淡色群に Beauty Shadow #3A2A2C を加えた「Warm Minimal」パレット。文字やボタンの色はこの濃色が担うと、淡い世界観のまま実用性が確保できる。</p>
+        <details class="term-more">
+          <summary>もっと詳しく</summary>
+          <dl class="more-body">
+            <dt>仕組み・特徴</dt><dd>淡い色だけのパレットはぼやけて「霧」のようになる。濃い色を 1 色だけ入れると、コントラストが生まれ、柔らかさが際立つ。</dd>
+            <dt>使いどころ</dt><dd>文字やボタンなど、要所をその濃色が担う。2 色コンビ（濃＋淡）や 5 段グラデーションでも同じ構造で、背景と文字の役割分担がそのまま決まる。</dd>
+            <dt>注意点</dt><dd>濃色を増やしすぎると柔らかい世界観が失われる。アンカーは 1 色が基本。</dd>
+            <dt>関連ノート</dt><dd class="more-notes"><a href="notes/2026-10-26-instagram-ui.md" target="_blank" rel="noopener">ダークアンカー＆ボトムナビ11種</a><a href="notes/2026-10-26-premium-color-combos.md" target="_blank" rel="noopener">プレミアム配色コンビ</a><a href="notes/2026-10-26-color-palettes-vibe.md" target="_blank" rel="noopener">色が作る雰囲気パレット</a></dd>
+          </dl>
+        </details>
         <div class="prompt-box">
           <span>Soft pastel color palette anchored by one deep dark shade for text and buttons</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
@@ -1540,7 +1945,7 @@
         } else {
           matchCat = card.dataset.category === currentCat;
         }
-        const text = card.innerText.toLowerCase();
+        const text = card.textContent.toLowerCase();
         const matchQuery = !q || text.includes(q);
         card.style.display = (matchCat && matchQuery) ? 'flex' : 'none';
       });
@@ -1556,6 +1961,15 @@
     });
 
     searchInput.addEventListener('input', filterCards);
+
+    const toggleAll = document.getElementById('toggleAll');
+    toggleAll.addEventListener('click', () => {
+      const details = document.querySelectorAll('.term-more');
+      const open = toggleAll.dataset.open !== 'true';
+      details.forEach(d => { d.open = open; });
+      toggleAll.dataset.open = String(open);
+      toggleAll.textContent = open ? '解説をすべて閉じる' : '解説をすべて開く';
+    });
 
     function copyPrompt(btn) {
       const promptText = btn.previousElementSibling.innerText;
