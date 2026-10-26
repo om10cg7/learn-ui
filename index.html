@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI/UX デザイン＆トレンド用語 ビジュアル大図鑑 (Apple特集追加・全29種)</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --surface-hover: #334155;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-2: #818cf8;
+      --apple-accent: #f43f5e;
+      --border: #334155;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 90px;
+    }
+
+    /* Header & Controls */
+    header {
+      background: rgba(15, 23, 42, 0.85);
+      padding: 36px 24px 24px;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .container { max-width: 1320px; margin: 0 auto; }
+    h1 { font-size: 1.75rem; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.02em; }
+    .subtitle { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 18px; }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tab-btn {
+      background: var(--surface);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-weight: 600;
+    }
+    .tab-btn:hover, .tab-btn.active {
+      background: var(--accent);
+      color: #0f172a;
+      border-color: var(--accent);
+    }
+    .tab-btn.apple-tab {
+      border-color: rgba(244, 63, 94, 0.5);
+      color: #fda4af;
+    }
+    .tab-btn.apple-tab:hover, .tab-btn.apple-tab.active {
+      background: linear-gradient(135deg, #f43f5e, #a855f7);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .search-input {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      width: 260px;
+    }
+    .search-input:focus { outline: 2px solid var(--accent); border-color: transparent; }
+
+    /* Catalog Grid */
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 24px;
+      padding: 32px 24px;
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    .term-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+    .term-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+    .term-card[data-category="apple"]:hover {
+      border-color: #f43f5e;
+    }
+
+    /* Visual Sample Preview Stage */
+    .sample-stage {
+      height: 195px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border);
+      background: #090d16;
+      padding: 16px;
+      user-select: none;
+    }
+
+    .card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+    .badge-row { display: flex; gap: 6px; align-items: center; margin-bottom: 8px; flex-wrap: wrap; }
+    .category-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent);
+    }
+    .apple-badge {
+      background: linear-gradient(135deg, rgba(244,63,94,0.2), rgba(168,85,247,0.2));
+      border: 1px solid rgba(244,63,94,0.45);
+      color: #fda4af;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 9px;
+      border-radius: 999px;
+    }
+
+    .term-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 2px; }
+    .term-en { font-size: 0.78rem; color: var(--text-muted); font-family: monospace; margin-bottom: 10px; }
+    .term-desc { font-size: 0.88rem; color: #cbd5e1; margin-bottom: 14px; flex: 1; }
+    .prompt-box {
+      background: rgba(15, 23, 42, 0.75);
+      border-left: 3px solid var(--accent-2);
+      padding: 8px 10px;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      border-radius: 0 6px 6px 0;
+      font-family: monospace;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .copy-btn {
+      background: #334155;
+      color: #f8fafc;
+      border: none;
+      padding: 4px 9px;
+      border-radius: 5px;
+      font-size: 0.7rem;
+      cursor: pointer;
+      white-space: nowrap;
+      font-weight: 600;
+      transition: background 0.15s;
+    }
+    .copy-btn:hover { background: var(--accent); color: #0f172a; }
+
+    /* Global Toast Notification for Copy */
+    #copyToast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #10b981;
+      color: #052e16;
+      font-weight: 700;
+      padding: 12px 20px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1000;
+      font-size: 0.88rem;
+    }
+    #copyToast.show { transform: translateY(0); opacity: 1; }
+
+    /* =====================================================
+       個別デザインのライブサンプル描画スタイル
+       ===================================================== */
+
+    /* --- 🍎 Apple Design 特集 (5種) --- */
+    /* A1. 空間UI (Spatial UI / visionOS) */
+    .stage-spatial {
+      background: radial-gradient(circle at 30% 20%, #3b4252, #111827 75%);
+    }
+    .spatial-room-glow {
+      position: absolute; width: 160px; height: 160px; border-radius: 50%;
+      background: conic-gradient(from 90deg, #38bdf8, #f43f5e, #a855f7, #38bdf8);
+      filter: blur(28px); opacity: 0.45;
+    }
+    .spatial-window {
+      position: relative; z-index: 2; width: 225px; height: 125px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.07) 100%);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 28px;
+      /* Specular edge highlight */
+      box-shadow:
+        0 20px 40px rgba(0,0,0,0.55),
+        inset 0 1.5px 1px rgba(255,255,255,0.65),
+        inset 0 -1px 1px rgba(255,255,255,0.15);
+      padding: 16px; color: #fff;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .spatial-bar {
+      width: 48px; height: 5px; background: rgba(255,255,255,0.5);
+      border-radius: 99px; margin: 10px auto 0;
+    }
+
+    /* A2. ダイナミックアイランド (Fluid Morphing Pill) */
+    @keyframes islandMorph {
+      0%, 20% { width: 105px; height: 30px; border-radius: 99px; }
+      45%, 80% { width: 230px; height: 68px; border-radius: 34px; }
+      95%, 100% { width: 105px; height: 30px; border-radius: 99px; }
+    }
+    @keyframes islandContent {
+      0%, 25%, 90%, 100% { opacity: 0; transform: scale(0.9); }
+      45%, 78% { opacity: 1; transform: scale(1); }
+    }
+    .stage-island {
+      background: linear-gradient(160deg, #1e1b4b, #311042);
+    }
+    .dynamic-island {
+      background: #000;
+      color: #fff;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08);
+      animation: islandMorph 4.5s infinite cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 16px; overflow: hidden;
+    }
+    .island-inner {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      animation: islandContent 4.5s infinite ease;
+      font-size: 0.75rem; white-space: nowrap;
+    }
+    .wave-bars { display: flex; gap: 3px; align-items: center; }
+    .wave-bars span {
+      width: 3px; height: 14px; background: #ec4899; border-radius: 2px;
+      display: inline-block;
+    }
+
+    /* A3. スクワークル (Squircle / 連続曲率角丸) */
+    .stage-squircle { background: #0f172a; gap: 22px; }
+    .box-css-radius {
+      width: 92px; height: 92px; background: #475569;
+      border-radius: 22px; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; font-size: 0.7rem; text-align: center;
+      border: 1px solid #64748b;
+    }
+    .box-apple-squircle {
+      width: 92px; height: 92px;
+      background: linear-gradient(135deg, #38bdf8, #6366f1);
+      /* Smooth continuous curvature simulation */
+      border-radius: 28%;
+      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4), inset 0 1px 1px rgba(255,255,255,0.5);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; text-align: center;
+    }
+
+    /* A4. Apple風製品LP (Dark Scrollytelling & Gradient Typography) */
+    .stage-apple-lp {
+      background: #000000;
+      flex-direction: column; text-align: center;
+    }
+    .apple-lp-tag { font-size: 0.7rem; color: #f59e0b; font-weight: 700; letter-spacing: 0.08em; }
+    .apple-lp-hero {
+      font-size: 1.65rem; font-weight: 800; letter-spacing: -0.03em;
+      background: linear-gradient(90deg, #ffffff 0%, #cbd5e1 45%, #38bdf8 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin: 4px 0 8px;
+    }
+    .apple-lp-glow {
+      width: 140px; height: 6px; border-radius: 99px;
+      background: linear-gradient(90deg, transparent, #38bdf8, #a855f7, transparent);
+      box-shadow: 0 0 20px #38bdf8;
+    }
+
+    /* A5. Apple HIG バイブランシー & カプセルコントロール */
+    .stage-hig {
+      background: linear-gradient(120deg, #0ea5e9, #ec4899, #f59e0b);
+    }
+    .hig-control-center {
+      width: 220px; padding: 12px; border-radius: 24px;
+      background: rgba(20, 20, 25, 0.55);
+      backdrop-filter: blur(20px) saturate(190%);
+      -webkit-backdrop-filter: blur(20px) saturate(190%);
+      border: 1px solid rgba(255,255,255,0.18);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    }
+    .hig-pill {
+      background: rgba(255,255,255,0.15); border-radius: 16px; padding: 8px 10px;
+      font-size: 0.7rem; font-weight: 700; display: flex; align-items: center; gap: 6px;
+    }
+    .hig-pill.on { background: rgba(255,255,255,0.92); color: #0f172a; }
+
+    /* --- 1. 質感・モーフィズム系 --- */
+    .stage-glass { background: linear-gradient(135deg, #4f46e5, #ec4899); }
+    .stage-glass .orb1 {
+      position: absolute; width: 90px; height: 90px; border-radius: 50%;
+      background: #fde047; top: 15px; left: 50px; filter: blur(4px);
+    }
+    .stage-glass .orb2 {
+      position: absolute; width: 100px; height: 100px; border-radius: 50%;
+      background: #22d3ee; bottom: 10px; right: 40px; filter: blur(6px);
+    }
+    .glass-box {
+      position: relative; z-index: 2; width: 220px; height: 115px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      border-radius: 16px; padding: 16px; color: #fff;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    }
+
+    .stage-neu { background: #e0e5ec; color: #4a5568; gap: 20px; }
+    .neu-card {
+      width: 110px; height: 110px; border-radius: 24px; background: #e0e5ec;
+      box-shadow: 8px 8px 16px #a3b1c6, -8px -8px 16px #ffffff;
+      display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.8rem;
+    }
+    .neu-inset {
+      width: 90px; height: 90px; border-radius: 50%; background: #e0e5ec;
+      box-shadow: inset 6px 6px 12px #a3b1c6, inset -6px -6px 12px #ffffff;
+      display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: #64748b;
+    }
+
+    .stage-clay { background: #dbeafe; }
+    .clay-box {
+      width: 180px; height: 110px; border-radius: 32px; background: #60a5fa; color: white; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 12px 12px 24px rgba(37, 99, 235, 0.35), inset -8px -8px 16px rgba(29, 78, 216, 0.5), inset 8px 8px 16px rgba(255, 255, 255, 0.65);
+    }
+
+    .stage-skeuo { background: #3e2723; }
+    .skeuo-btn {
+      width: 180px; height: 64px; border-radius: 12px;
+      background: linear-gradient(180deg, #f5f5f5 0%, #cfcfcf 48%, #b0b0b0 52%, #e0e0e0 100%);
+      border: 2px solid #222; box-shadow: 0 6px 12px rgba(0,0,0,0.7), inset 0 2px 1px #fff;
+      color: #222; font-weight: 800; font-family: Georgia, serif;
+      display: flex; align-items: center; justify-content: center; text-shadow: 0 1px 0 #fff;
+    }
+    .skeuo-stitch { position: absolute; inset: 8px; border: 1px dashed rgba(255,255,255,0.35); border-radius: 10px; pointer-events: none; }
+
+    .stage-flat { background: #f1f5f9; }
+    .flat-ui { width: 200px; background: #3b82f6; color: #fff; padding: 16px; border-radius: 4px; text-align: center; font-weight: 700; }
+
+    .stage-material { background: #f8fafc; }
+    .mat-card {
+      width: 210px; height: 115px; background: #fff; color: #1e293b; border-radius: 8px; padding: 14px; position: relative;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.15), 0 2px 4px -2px rgba(0,0,0,0.1);
+    }
+    .mat-fab {
+      width: 40px; height: 40px; border-radius: 50%; background: #e11d48; color: #fff; position: absolute;
+      bottom: 12px; right: 12px; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 14px rgba(225,29,72,0.45); font-size: 1.3rem; font-weight: bold;
+    }
+
+    /* --- 2. レイアウト & 3. 世界観 & 4. コンポーネント & 5. UX --- */
+    .stage-brutal { background: #fef08a; }
+    .brutal-card { width: 210px; background: #ec4899; color: #000; border: 3px solid #000; padding: 14px; box-shadow: 7px 7px 0px #000; font-weight: 900; }
+    .brutal-btn { margin-top: 8px; display: inline-block; background: #22d3ee; border: 2px solid #000; padding: 4px 12px; font-size: 0.78rem; box-shadow: 3px 3px 0px #000; }
+
+    .bento-demo { width: 240px; height: 140px; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: 8px; }
+    .bento-cell { background: #1e293b; border: 1px solid #475569; border-radius: 12px; padding: 8px; font-size: 0.7rem; color: #94a3b8; display: flex; align-items: flex-end; }
+    .bento-cell.c1 { grid-column: span 2; background: linear-gradient(135deg, #312e81, #1e1b4b); color: #e0e7ff; font-weight: bold; }
+    .bento-cell.c2 { grid-row: span 2; background: #0f766e; color: #ccfbf1; }
+
+    .masonry-demo { width: 220px; column-count: 3; column-gap: 8px; }
+    .m-item { background: #334155; border: 1px solid #64748b; border-radius: 6px; margin-bottom: 8px; break-inside: avoid; }
+
+    .split-demo { width: 240px; height: 135px; border-radius: 10px; overflow: hidden; display: flex; border: 1px solid #475569; }
+    .split-left { flex: 1; background: linear-gradient(135deg, #0ea5e9, #6366f1); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.8rem; }
+    .split-right { flex: 1; background: #1e293b; padding: 14px; display: flex; flex-direction: column; justify-content: center; gap: 6px; }
+
+    .broken-demo { width: 230px; height: 135px; position: relative; }
+    .bg-pic { width: 140px; height: 100px; background: #4f46e5; border-radius: 8px; position: absolute; left: 10px; top: 15px; }
+    .bg-card { width: 130px; height: 70px; background: #f43f5e; border-radius: 8px; position: absolute; right: 10px; bottom: 12px; padding: 10px; font-size: 0.75rem; font-weight: bold; box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
+
+    .stage-aurora {
+      background: #090d16;
+      background-image:
+        radial-gradient(at 20% 25%, rgba(56, 189, 248, 0.55) 0px, transparent 55%),
+        radial-gradient(at 80% 30%, rgba(236, 72, 153, 0.5) 0px, transparent 55%),
+        radial-gradient(at 50% 85%, rgba(168, 85, 247, 0.55) 0px, transparent 55%);
+    }
+    .stage-y2k { background: repeating-linear-gradient(0deg, #111 0px, #111 2px, #1a1a2e 2px, #1a1a2e 4px); }
+    .y2k-win { width: 210px; background: #c0c0c0; color: #000; border: 2px outset #fff; padding: 3px; font-family: monospace; }
+    .y2k-bar { background: linear-gradient(90deg, #ff007f, #00f0ff); color: #fff; font-weight: bold; padding: 3px 6px; font-size: 0.75rem; }
+
+    @keyframes shimmer { 0% { background-position: -200px 0; } 100% { background-position: 200px 0; } }
+    .skel-card { width: 220px; background: #1e293b; border-radius: 12px; padding: 14px; border: 1px solid #334155; }
+    .skel-line { background: linear-gradient(90deg, #334155 25%, #475569 50%, #334155 75%); background-size: 400px 100%; animation: shimmer 1.6s infinite linear; border-radius: 6px; }
+
+    .mini-screen { width: 220px; height: 140px; background: #1e293b; border: 2px solid #475569; border-radius: 12px; position: relative; overflow: hidden; padding: 10px; }
+    .backdrop-dim { position: absolute; inset: 0; background: rgba(0,0,0,0.65); display: flex; align-items: center; justify-content: center; }
+    .mini-modal { width: 140px; background: #fff; color: #0f172a; border-radius: 8px; padding: 10px; font-size: 0.72rem; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+    .mini-bottom-sheet { position: absolute; left: 0; right: 0; bottom: 0; height: 78px; background: #f8fafc; color: #0f172a; border-radius: 14px 14px 0 0; padding: 8px 12px; font-size: 0.75rem; }
+    .sheet-handle { width: 32px; height: 4px; background: #cbd5e1; border-radius: 99px; margin: 0 auto 6px; }
+
+    @keyframes toastSlide {
+      0%, 15% { transform: translateY(50px); opacity: 0; }
+      25%, 80% { transform: translateY(0); opacity: 1; }
+      90%, 100% { transform: translateY(50px); opacity: 0; }
+    }
+    .mini-toast { position: absolute; bottom: 10px; right: 10px; background: #10b981; color: #052e16; font-weight: 700; font-size: 0.72rem; padding: 6px 12px; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); animation: toastSlide 3.5s infinite; }
+
+    .menu-icons-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; width: 100%; }
+    .icon-box { background: #1e293b; border: 1px solid #475569; border-radius: 10px; padding: 12px 6px; text-align: center; font-size: 0.7rem; color: #cbd5e1; }
+    .icon-symbol { font-size: 1.4rem; font-weight: bold; color: var(--accent); margin-bottom: 4px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>UI/UX デザイン＆トレンド用語 ビジュアル大図鑑 <span style="font-size:0.9rem; color:#fda4af; font-weight:600;">v2.0 (Apple特集追加)</span></h1>
+      <p class="subtitle">Apple固有のUI表現・モーフィズム・レイアウト構造・世界観・UIコンポーネント・UX原則の全29用語（プロンプトコピー機能付き）</p>
+      <div class="controls">
+        <div class="tabs" id="categoryTabs">
+          <button class="tab-btn active" data-cat="all">すべて表示 (29)</button>
+          <button class="tab-btn apple-tab" data-cat="apple-related">🍎 Appleデザイン関連すべて (9)</button>
+          <button class="tab-btn" data-cat="apple">Apple固有UI・HIG (5)</button>
+          <button class="tab-btn" data-cat="morphism">質感・モーフィズム (6)</button>
+          <button class="tab-btn" data-cat="layout">レイアウト構造 (5)</button>
+          <button class="tab-btn" data-cat="aesthetic">世界観・トレンド (5)</button>
+          <button class="tab-btn" data-cat="component">UIパーツ・通知 (5)</button>
+          <button class="tab-btn" data-cat="ux">動き・UX原則 (3)</button>
+        </div>
+        <input type="text" id="searchInput" class="search-input" placeholder="用語名・Apple・特徴で検索...">
+      </div>
+    </div>
+  </header>
+
+  <main class="catalog-grid" id="catalogGrid">
+
+    <!-- ================= 🍎 Apple固有デザイン・HIG (新規追加5種) ================= -->
+    <article class="term-card" data-category="apple" data-apple="true">
+      <div class="sample-stage stage-spatial">
+        <div class="spatial-room-glow"></div>
+        <div class="spatial-window">
+          <div>
+            <div style="font-size:0.68rem; opacity:0.75; letter-spacing:0.06em;">VISION OS / SPATIAL UI</div>
+            <div style="font-size:1.05rem; font-weight:800; margin-top:2px;">Spatial Glass Window</div>
+            <div style="font-size:0.7rem; opacity:0.85; margin-top:4px;">環境光の反射エッジ＋深い立体ドロップシャドウ</div>
+          </div>
+          <div class="spatial-bar"></div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="apple-badge">🍎 Apple Vision Pro / visionOS</span>
+        </div>
+        <h2 class="term-title">空間UI（スペーシャルUI）</h2>
+        <div class="term-en">Spatial UI / visionOS Glass Material</div>
+        <p class="term-desc">グラスモーフィズムを3D空間向けに進化させたAppleの最新デザイン。ガラスの上端が光を反射する「スペキュラーハイライト（鋭い白縁）」と、視線を合わせた時にふわっと明るく浮き上がるホバー表現が特徴です。</p>
+        <div class="prompt-box">
+          <span>Apple visionOS spatial glass UI, specular top highlight border, deep ambient shadow</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="apple" data-apple="true">
+      <div class="sample-stage stage-island">
+        <div class="dynamic-island">
+          <div class="island-inner">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:1.1rem;">🎵</span>
+              <div>
+                <div style="font-weight:700; font-size:0.75rem;">Now Playing</div>
+                <div style="font-size:0.62rem; color:#94a3b8;">Fluid Morph UI</div>
+              </div>
+            </div>
+            <div class="wave-bars"><span></span><span style="height:20px;"></span><span></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="apple-badge">🍎 iPhone / Fluid Interaction</span>
+        </div>
+        <h2 class="term-title">ダイナミックアイランド風UI（流体モーフィング）</h2>
+        <div class="term-en">Dynamic Island / Fluid Morphing Pill</div>
+        <p class="term-desc">黒いカプセル型（ピル）の領域が、通知や再生状態に応じて液体やスライムのようにバネ挙動（スプリング物理演算）でヌルッと伸縮・変形するマイクロインタラクション。Webのフローティングナビでも大流行しています。</p>
+        <div class="prompt-box">
+          <span>Apple Dynamic Island style floating pill navbar with spring physics morphing animation</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="apple" data-apple="true">
+      <div class="sample-stage stage-squircle">
+        <div class="box-css-radius">
+          <strong>通常の角丸</strong>
+          <span style="font-size:0.62rem; color:#cbd5e1; margin-top:4px;">直線と円弧の境目がカクッと見える</span>
+        </div>
+        <div class="box-apple-squircle">
+          <strong>Squircle</strong>
+          <span style="font-size:0.62rem; opacity:0.9; margin-top:4px;">曲率が連続し滑らかに繋がる</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="apple-badge">🍎 Apple Icon &amp; Hardware</span>
+        </div>
+        <h2 class="term-title">スクワークル（連続曲率の超楕円）</h2>
+        <div class="term-en">Squircle / Continuous Curvature Corner</div>
+        <p class="term-desc">「Square（四角）」＋「Circle（円）」の造語。通常のCSS角丸と違い、直線からカーブへ入る継ぎ目の曲率が徐々に変化するため、iPhoneのアイコンや筐体のような「工芸品のように滑らかな角丸」になります。</p>
+        <div class="prompt-box">
+          <span>Apple-style squircle cards with smooth continuous corner curvature (border-radius: 24px+)</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="apple" data-apple="true">
+      <div class="sample-stage stage-apple-lp">
+        <div class="apple-lp-tag">M4 MAX / PRO DISPLAY</div>
+        <div class="apple-lp-hero">Mind-blowing.</div>
+        <div class="apple-lp-glow"></div>
+        <div style="font-size:0.68rem; color:#94a3b8; margin-top:10px;">漆黒の背景＋巨大グラデーション文字＋発光演出</div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="apple-badge">🍎 Apple Product Landing Page</span>
+        </div>
+        <h2 class="term-title">Apple風プロダクトLP表現</h2>
+        <div class="term-en">Apple-Style Product Showcase &amp; Scrollytelling</div>
+        <p class="term-desc">MacBook ProやiPhone Proの紹介ページでおなじみのスタイル。純黒（#000）の背景、メタリックなグラデーション文字（background-clip: text）、スクロールに連動して製品が暗闇から浮かび上がる演出の組み合わせです。</p>
+        <div class="prompt-box">
+          <span>Apple product landing page style, pitch black background, metallic gradient typography, dramatic rim lighting</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="apple" data-apple="true">
+      <div class="sample-stage stage-hig">
+        <div class="hig-control-center">
+          <div class="hig-pill on">📶 Wi-Fi On</div>
+          <div class="hig-pill">🌙 Focus</div>
+          <div class="hig-pill" style="grid-column: span 2; justify-content:center;">🔆 Vibrancy Material Layer</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="apple-badge">🍎 Apple HIG (Human Interface Guidelines)</span>
+        </div>
+        <h2 class="term-title">HIG バイブランシー（Vibrancy）</h2>
+        <div class="term-en">Apple HIG Vibrancy &amp; Translucent Materials</div>
+        <p class="term-desc">Appleの公式デザイン規約（HIG）で定義されている「単なる半透明ぼかしではなく、背景の色味を鮮やかに増幅（saturate）させて前景の文字と調和させる」手法。コントロールセンターやmacOSサイドバーの核となる技術です。</p>
+        <div class="prompt-box">
+          <span>Apple HIG style UI with backdrop-filter: blur(20px) saturate(180%) vibrancy material</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- ================= 1. 質感・モーフィズム系 ================= -->
+    <article class="term-card" data-category="morphism" data-apple="true">
+      <div class="sample-stage stage-glass">
+        <div class="orb1"></div>
+        <div class="orb2"></div>
+        <div class="glass-box">
+          <div style="font-size:0.75rem; opacity:0.85;">GLASSMORPHISM</div>
+          <div style="font-size:1.1rem; font-weight:800; margin-top:4px;">backdrop-filter: blur</div>
+          <div style="font-size:0.7rem; margin-top:8px; opacity:0.9;">半透明＋背景ぼかし＋細い白枠</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="category-badge">1. 質感・モーフィズム</span>
+          <span class="apple-badge">🍎 macOS Big Sur〜 / iOS</span>
+        </div>
+        <h2 class="term-title">グラスモーフィズム</h2>
+        <div class="term-en">Glassmorphism</div>
+        <p class="term-desc">すりガラスのように背景をぼかして透かし、細い半透明の白枠（ボーダー）でガラスの縁を表現する手法。macOS Big SurやWindows 11が採用し世界的な定着を果たしました。</p>
+        <div class="prompt-box">
+          <span>Glassmorphism card with backdrop-filter: blur(12px), semi-transparent white border</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="morphism">
+      <div class="sample-stage stage-neu">
+        <div class="neu-card">凸 Extrude</div>
+        <div class="neu-inset">凹 Inset</div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row"><span class="category-badge">1. 質感・モーフィズム</span></div>
+        <h2 class="term-title">ニューモーフィズム</h2>
+        <div class="term-en">Neumorphism (Soft UI)</div>
+        <p class="term-desc">背景と要素をまったく同じ色にし、左上の白い光（ハイライト）と右下の暗い影（シャドウ）だけで、背景から押し出されたような凹凸を表現する手法。</p>
+        <div class="prompt-box">
+          <span>Neumorphism soft UI with dual light/dark box-shadows on matching background</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="morphism">
+      <div class="sample-stage stage-clay">
+        <div class="clay-box">Clay 3D UI</div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row"><span class="category-badge">1. 質感・モーフィズム</span></div>
+        <h2 class="term-title">クレイモーフィズム</h2>
+        <div class="term-en">Claymorphism</div>
+        <p class="term-desc">粘土（クレイ）人形のようにもっちり・ぷっくりと膨らんだ3D風の質感。大きな角丸と、要素の内側に入れる2方向のインナーシャドウで作ります。</p>
+        <div class="prompt-box">
+          <span>Claymorphism 3D inflated button style with deep inner shadows and rounded corners</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="morphism" data-apple="true">
+      <div class="sample-stage stage-skeuo">
+        <div class="skeuo-stitch"></div>
+        <div class="skeuo-btn">PUSH BUTTON</div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="category-badge">1. 質感・モーフィズム</span>
+          <span class="apple-badge">🍎 初代iPhone〜iOS 6</span>
+        </div>
+        <h2 class="term-title">スキューモーフィズム</h2>
+        <div class="term-en">Skeuomorphism</div>
+        <p class="term-desc">現実世界の革の縫い目、金属の光沢、物理スイッチの凹凸などをリアルに模倣する手法。スティーブ・ジョブズ時代の初期iPhone（iOS 6まで）の象徴的デザインです。</p>
+        <div class="prompt-box">
+          <span>Tactile skeuomorphic UI with realistic metallic gradients, bevels, and physical textures</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="morphism" data-apple="true">
+      <div class="sample-stage stage-flat">
+        <div class="flat-ui">FLAT BUTTON</div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="category-badge">1. 質感・モーフィズム</span>
+          <span class="apple-badge">🍎 iOS 7での大転換</span>
+        </div>
+        <h2 class="term-title">フラットデザイン</h2>
+        <div class="term-en">Flat Design</div>
+        <p class="term-desc">影や立体感をすべて排除し、単色の面とタイポグラフィだけで構成する手法。2013年のiOS 7でAppleがスキューモーフィズムを捨てて全面採用し、世界の標準となりました。</p>
+        <div class="prompt-box">
+          <span>Clean 2D flat design UI with solid colors, no drop shadows, crisp typography</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="morphism">
+      <div class="sample-stage stage-material">
+        <div class="mat-card">
+          <div style="font-weight:700; font-size:0.85rem;">Material Paper</div>
+          <div style="font-size:0.72rem; color:#64748b; margin-top:4px;">Elevation (Z軸の高さと影)</div>
+          <div class="mat-fab">＋</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row"><span class="category-badge">1. 質感・モーフィズム</span></div>
+        <h2 class="term-title">マテリアルデザイン</h2>
+        <div class="term-en">Material Design (Google)</div>
+        <p class="term-desc">Googleが提唱したデザイン体系（AppleのHIGと双璧をなす規格）。フラットデザインをベースにしつつ、「紙の重なり（Z軸の高さ＝エレベーション）」を影で表現します。</p>
+        <div class="prompt-box">
+          <span>Google Material Design 3 style with elevation shadows, tonal surface colors, and FAB</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- ================= 2. レイアウト構造 ================= -->
+    <article class="term-card" data-category="layout" data-apple="true">
+      <div class="sample-stage">
+        <div class="bento-demo">
+          <div class="bento-cell c1">Apple Summary (2x1)</div>
+          <div class="bento-cell c2">Chip (1x2)</div>
+          <div class="bento-cell">Battery</div>
+          <div class="bento-cell">Camera</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="category-badge">2. レイアウト構造</span>
+          <span class="apple-badge">🍎 Apple発表会・製品ページの定番</span>
+        </div>
+        <h2 class="term-title">ベントーUI（弁当グリッド）</h2>
+        <div class="term-en">Bento UI / Bento Grid</div>
+        <p class="term-desc">日本の幕の内弁当の仕切りのように、大きさの異なる角丸長方形カードを隙間なく並べるレイアウト。Appleの新製品発表スライドから世界中に広まった現代の王道レイアウトです。</p>
+        <div class="prompt-box">
+          <span>Apple-style Bento grid layout with asymmetric rounded cards and subtle borders</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="layout">
+      <div class="sample-stage">
+        <div class="masonry-demo">
+          <div class="m-item" style="height:55px; background:#3b82f6;"></div>
+          <div class="m-item" style="height:35px;"></div>
+          <div class="m-item" style="height:40px;"></div>
+          <div class="m-item" style="height:60px; background:#6366f1;"></div>
+          <div class="m-item" style="height:65px; background:#14b8a6;"></div>
+          <div class="m-item" style="height:30px;"></div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row"><span class="category-badge">2. レイアウト構造</span></div>
+        <h2 class="term-title">メイソンリーレイアウト</h2>
+        <div class="term-en">Masonry Layout</div>
+        <p class="term-desc">「石積み（レンガ積み）」の意味。横幅を揃えつつ、縦の高さがバラバラなカードや写真を隙間なく噛み合わせるように詰めていくレイアウト（Pinterest型）。</p>
+        <div class="prompt-box">
+          <span>Pinterest-style multi-column masonry grid layout with variable height cards</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="layout">
+      <div class="sample-stage">
+        <div class="split-demo">
+          <div class="split-left">VISUAL</div>
+          <div class="split-right">
+            <div style="height:8px; width:80%; background:#64748b; border-radius:4px;"></div>
+            <div style="height:8px; width:60%; background:#475569; border-radius:4px;"></div>
+            <div style="height:22px; width:100%; background:#38bdf8; border-radius:4px; margin-top:6px;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row"><span class="category-badge">2. レイアウト構造</span></div>
+        <h2 class="term-title">スプリットスクリーン</h2>
+        <div class="term-en">Split Screen Layout</div>
+        <p class="term-desc">画面を左右50:50に分割し、左側に固定のビジュアル、右側に入力フォームやスクロールする記事を配置する構成。</p>
+        <div class="prompt-box">
+          <span>50/50 split screen layout with sticky visual on left and scrollable content on right</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="layout">
+      <div class="sample-stage">
+        <div class="broken-demo">
+          <div class="bg-pic"></div>
+          <div class="bg-card">Overlapping<br>Broken Grid</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row"><span class="category-badge">2. レイアウト構造</span></div>
+        <h2 class="term-title">ブロークングリッド</h2>
+        <div class="term-en">Broken Grid / Asymmetric Layout</div>
+        <p class="term-desc">整然としたグリッドの境界線をあえて崩し、画像の上にテキストボックスを少し重ねたり位置をずらしたりして、雑誌のような洗練された動きを出す手法。</p>
+        <div class="prompt-box">
+          <span>Editorial broken grid layout with overlapping cards and asymmetric positioning</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="layout">
+      <div class="sample-stage">
+        <div style="width:230px; height:130px; background:linear-gradient(135deg,#0f172a,#334155); border:1px solid #475569; border-radius:10px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:12px;">
+          <div style="font-size:1.05rem; font-weight:900; color:#fff;">HERO HEADLINE</div>
+          <div style="font-size:0.68rem; color:#94a3b8; margin:4px 0 10px;">最初に目に入る全幅の象徴的ビジュアル領域</div>
+          <div style="background:#38bdf8; color:#0f172a; font-size:0.72rem; font-weight:800; padding:4px 14px; border-radius:99px;">CTA Button</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row"><span class="category-badge">2. レイアウト構造</span></div>
+        <h2 class="term-title">ヒーローセクション &amp; フルブリード</h2>
+        <div class="term-en">Hero Section / Full Bleed</div>
+        <p class="term-desc">ページ最上部（ファーストビュー）に配置する巨大な看板領域。余白を作らず画面の左右端まで背景を広げる手法を「フルブリード」と呼びます。</p>
+        <div class="prompt-box">
+          <span>Full-bleed hero section with bold headline, subtitle, and prominent CTA button</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- ================= 3. 世界観・ビジュアルトレンド ================= -->
+    <article class="term-card" data-category="aesthetic">
+      <div class="sample-stage stage-brutal">
+        <div class="brutal-card">
+          <div>NEO-BRUTALISM</div>
+          <span class="brutal-btn">CLICK ME!</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row"><span class="category-badge">3. 世界観・トレンド</span></div>
+        <h2 class="term-title">ネオ・ブルータリズム</h2>
+        <div class="term-en">Neo-Brutalism</div>
+        <p class="term-desc">くっきりした黒い太枠（border）、ぼかしのない真っ黒なベタ影（ハードシャドウ）、高彩度の原色背景を組み合わせた、ステッカーのように力強いトレンド。</p>
+        <div class="prompt-box">
+          <span>Neo-brutalism UI with thick 3px black borders, hard offset shadows, vibrant colors</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="aesthetic">
+      <div class="sample-stage stage-aurora">
+        <div style="font-weight:800; font-size:1.1rem; letter-spacing:0.06em; text-shadow:0 2px 10px rgba(0,0,0,0.5);">AURORA MESH</div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row"><span class="category-badge">3. 世界観・トレンド</span></div>
+        <h2 class="term-title">オーロラUI / メッシュグラデーション</h2>
+        <div class="term-en">Aurora UI / Mesh Gradient</div>
+        <p class="term-desc">複数の淡い色が境界線なく溶け合い、オーロラのようにぼんやりと発光する背景表現。グラスモーフィズムの背面として抜群の相性を持ちます。</p>
+        <div class="prompt-box">
+          <span>Aurora mesh gradient background with soft blurred radial color blobs</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="aesthetic">
+      <div class="sample-stage stage-y2k">
+        <div class="y2k-win">
+          <div class="y2k-bar">CYBER_Y2K.EXE</div>
+          <div style="padding:12px; font-size:0.75rem; text-align:center;">[ OK ]  [ CANCEL ]</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row"><span class="category-badge">3. 世界観・トレンド</span></div>
+        <h2 class="term-title">Y2K / レトロフューチャー</h2>
+        <div class="term-en">Y2K Aesthetic / Retro-Futurism</div>
+        <p class="term-desc">2000年前後の初期インターネット、旧OSのウィンドウ枠、ピクセルフォント、メタリックシルバーやネオンピンクを現代風に再解釈した表現。</p>
+        <div class="prompt-box">
+          <span>Y2K retro-futuristic UI with pixel fonts, bevel window frames, and cyber neon accents</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="aesthetic">
+      <div class="sample-stage" style="background:#f8fafc; color:#0f172a;">
+        <div style="width:220px; border-top:4px solid #0f172a; padding-top:8px;">
+          <div style="font-size:1.6rem; font-weight:900; line-height:1; letter-spacing:-0.04em;">SWISS<br>GRID.</div>
+          <div style="font-size:0.7rem; margin-top:8px; color:#475569;">厳密なグリッドとサンセリフ体</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row"><span class="category-badge">3. 世界観・トレンド</span></div>
+        <h2 class="term-title">スイススタイル / ミニマリズム</h2>
+        <div class="term-en">Swiss Style / International Typographic</div>
+        <p class="term-desc">装飾を削ぎ落とし、厳密なグリッド線、大きな余白、そしてサンセリフ体（ゴシック体）の文字の大小コントラストだけで魅せる知的で普遍的な様式。</p>
+        <div class="prompt-box">
+          <span>Swiss international typographic style with strict grid lines and bold sans-serif hierarchy</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="aesthetic">
+      <div class="sample-stage" style="background:#09090b;">
+        <div style="width:210px; background:#18181b; border:1px solid #27272a; border-radius:10px; padding:14px;">
+          <div style="font-size:0.7rem; color:#a1a1aa; font-family:monospace;">ELEVATION LEVEL 1</div>
+          <div style="margin-top:8px; background:#27272a; border:1px solid #3f3f46; border-radius:6px; padding:8px; font-size:0.75rem; color:#f4f4f5;">
+            手前の階層ほど明るいグレーにする
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row"><span class="category-badge">3. 世界観・トレンド</span></div>
+        <h2 class="term-title">ダークUI / ローライトUI</h2>
+        <div class="term-en">Dark UI / Low-Light Interface</div>
+        <p class="term-desc">ダークグレーを基調とし、影の代わりに「手前に浮き出るカードほど少し明るいグレーにする」ことで奥行きを表現する設計手法。</p>
+        <div class="prompt-box">
+          <span>Modern dark mode UI using zinc/slate surface elevation and 1px subtle borders</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- ================= 4. UIパーツ・通知コンポーネント ================= -->
+    <article class="term-card" data-category="component">
+      <div class="sample-stage">
+        <div class="menu-icons-grid">
+          <div class="icon-box"><div class="icon-symbol">≡</div>ハンバーガー</div>
+          <div class="icon-box"><div class="icon-symbol">⋮</div>ケバブ</div>
+          <div class="icon-box"><div class="icon-symbol">⋯</div>ミートボール</div>
+          <div class="icon-box"><div class="icon-symbol">:::</div>弁当(Bento)</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row"><span class="category-badge">4. UIパーツ・通知</span></div>
+        <h2 class="term-title">メニューアイコン4兄弟 &amp; ドロワー</h2>
+        <div class="term-en">Hamburger / Kebab / Meatballs / Bento Menu</div>
+        <p class="term-desc">三本線は「ハンバーガー」、縦三点は「ケバブ」、横三点は「ミートボール」、9つの点は「弁当メニュー」。押した時に横から滑り出るパネルを「ドロワー（引き出し）」と呼びます。</p>
+        <div class="prompt-box">
+          <span>Slide-out navigation drawer triggered by hamburger/kebab menu icon</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="component">
+      <div class="sample-stage">
+        <div class="mini-screen">
+          <div style="font-size:0.7rem; color:#64748b;">背景の通常コンテンツ</div>
+          <div class="backdrop-dim">
+            <div class="mini-modal">
+              <strong>Modal Dialog</strong>
+              <div style="margin-top:6px; background:#3b82f6; color:#fff; border-radius:4px; padding:2px 0;">確認して閉じる</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row"><span class="category-badge">4. UIパーツ・通知</span></div>
+        <h2 class="term-title">モーダル（モーダルウィンドウ）</h2>
+        <div class="term-en">Modal / Dialog</div>
+        <p class="term-desc">背景を暗く覆い（バックドロップ）、画面中央にポップアップして、ユーザーが操作を完了するまで後ろの画面をロックする確認ウィンドウ。</p>
+        <div class="prompt-box">
+          <span>Centered modal dialog with blurred dark backdrop overlay</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="component">
+      <div class="sample-stage">
+        <div class="mini-screen">
+          <div style="font-size:0.7rem; color:#64748b;">スマホ画面の背面</div>
+          <div class="mini-bottom-sheet">
+            <div class="sheet-handle"></div>
+            <strong>Bottom Sheet</strong>
+            <div style="font-size:0.68rem; color:#64748b;">下端からせり上がる親指操作向けパネル</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row"><span class="category-badge">4. UIパーツ・通知</span></div>
+        <h2 class="term-title">ボトムシート</h2>
+        <div class="term-en">Bottom Sheet</div>
+        <p class="term-desc">スマホ画面の下端からせり上がってくるパネル。親指で楽に操作・スワイプ閉じができるため、モバイルUIではモーダル以上に多用されます。</p>
+        <div class="prompt-box">
+          <span>Mobile-friendly slide-up bottom sheet with top drag handle indicator</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="component">
+      <div class="sample-stage">
+        <div class="mini-screen">
+          <div style="font-size:0.72rem; color:#94a3b8;">作業中のメイン画面...</div>
+          <div class="mini-toast">✓ 保存しました (Toast)</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row"><span class="category-badge">4. UIパーツ・通知</span></div>
+        <h2 class="term-title">トースト通知 / スナックバー</h2>
+        <div class="term-en">Toast / Snackbar</div>
+        <p class="term-desc">トースターからパンが飛び出すように、画面の隅に数秒だけ現れて自動的に消える通知。作業を邪魔せずに完了結果を伝えます。</p>
+        <div class="prompt-box">
+          <span>Non-intrusive floating toast notification at bottom-right with auto-dismiss</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="component">
+      <div class="sample-stage">
+        <div style="display:flex; flex-direction:column; gap:10px; width:220px;">
+          <div style="font-size:0.72rem; color:#94a3b8;">Home &gt; Category &gt; <span style="color:#38bdf8;">Current</span></div>
+          <div style="display:flex; gap:6px;">
+            <span style="background:#38bdf8; color:#0f172a; font-size:0.7rem; font-weight:700; padding:3px 10px; border-radius:999px;">Pill / Chip</span>
+            <span style="background:#334155; color:#f8fafc; font-size:0.7rem; padding:3px 10px; border-radius:999px;">Tag B</span>
+          </div>
+          <div style="background:#0f172a; border:1px solid #475569; border-radius:6px; padding:6px 10px; font-size:0.72rem; display:flex; justify-content:space-between;">
+            <span>🔍 コマンドを検索...</span><kbd style="background:#334155; padding:0 5px; border-radius:3px;">⌘K</kbd>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row"><span class="category-badge">4. UIパーツ・通知</span></div>
+        <h2 class="term-title">パンくず / ピル（チップ） / コマンドパレット</h2>
+        <div class="term-en">Breadcrumbs / Pill Chips / Command Palette</div>
+        <p class="term-desc">現在地階層を示す「パンくずリスト」、カプセル型のタグ「ピル（チップ）」、そしてショートカット（⌘K）で呼び出す万能検索窓「コマンドパレット」です。</p>
+        <div class="prompt-box">
+          <span>Cmd+K command palette modal, breadcrumb navigation, and rounded pill filter chips</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- ================= 5. 動き・状態・UX原則 ================= -->
+    <article class="term-card" data-category="ux">
+      <div class="sample-stage">
+        <div class="skel-card">
+          <div style="display:flex; gap:10px; align-items:center; margin-bottom:12px;">
+            <div class="skel-line" style="width:36px; height:36px; border-radius:50%;"></div>
+            <div style="flex:1;">
+              <div class="skel-line" style="height:10px; width:70%; margin-bottom:6px;"></div>
+              <div class="skel-line" style="height:8px; width:45%;"></div>
+            </div>
+          </div>
+          <div class="skel-line" style="height:10px; width:100%; margin-bottom:6px;"></div>
+          <div class="skel-line" style="height:10px; width:85%;"></div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row"><span class="category-badge">5. 動き・UX原則</span></div>
+        <h2 class="term-title">スケルトンスクリーン</h2>
+        <div class="term-en">Skeleton Screen / Shimmer Loading</div>
+        <p class="term-desc">データ読み込み中にスピナーを出す代わりに、これから表示されるカードの骨組み（グレーの枠）に光が走るシマー効果を表示して体感待ち時間を減らす手法。</p>
+        <div class="prompt-box">
+          <span>Skeleton loading placeholders with animated shimmer wave effect</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="ux">
+      <div class="sample-stage">
+        <div style="width:220px; border:1px dashed #475569; border-radius:12px; padding:16px; text-align:center;">
+          <div style="font-size:1.6rem; margin-bottom:4px;">📭</div>
+          <div style="font-size:0.8rem; font-weight:700;">データがまだありません</div>
+          <div style="font-size:0.68rem; color:#94a3b8; margin:4px 0 10px;">最初のプロジェクトを作成しましょう</div>
+          <span style="background:#38bdf8; color:#0f172a; font-size:0.72rem; font-weight:700; padding:4px 12px; border-radius:6px;">＋ 新規作成</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row"><span class="category-badge">5. 動き・UX原則</span></div>
+        <h2 class="term-title">エンプティステート（空の状態）</h2>
+        <div class="term-en">Empty State / Zero State</div>
+        <p class="term-desc">データが0件のときの画面。ただ空白にするのではなく、イラストと「次に何をすべきか（新規作成ボタンなど）」を配置してユーザーの離脱を防ぎます。</p>
+        <div class="prompt-box">
+          <span>Friendly empty state illustration with clear onboarding message and primary CTA button</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="ux">
+      <div class="sample-stage">
+        <div style="width:220px; background:#1e293b; border:1px solid #475569; border-radius:10px; padding:12px;">
+          <div style="font-size:0.8rem; font-weight:700; margin-bottom:6px;">基本設定のみ表示中</div>
+          <details style="font-size:0.72rem; color:#38bdf8; cursor:pointer;">
+            <summary>詳細オプションを開く (クリック)</summary>
+            <div style="margin-top:8px; padding:8px; background:#0f172a; border-radius:6px; color:#cbd5e1;">
+              必要な人にだけ高度な設定を段階的に開示します。
+            </div>
+          </details>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row"><span class="category-badge">5. 動き・UX原則</span></div>
+        <h2 class="term-title">プログレッシブ・ディスクロージャー</h2>
+        <div class="term-en">Progressive Disclosure (段階的開示)</div>
+        <p class="term-desc">最初からすべての複雑な設定を画面に並べるのではなく、最初は最小限の基本項目だけを見せ、必要に応じて段階的に詳細を開示する設計原則。</p>
+        <div class="prompt-box">
+          <span>Progressive disclosure UI using collapsible accordion sections for advanced settings</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <div id="copyToast">✓ AI指示プロンプトをコピーしました！</div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab-btn');
+    const cards = document.querySelectorAll('.term-card');
+    const searchInput = document.getElementById('searchInput');
+    const toast = document.getElementById('copyToast');
+    let currentCat = 'all';
+    let toastTimer = null;
+
+    function filterCards() {
+      const q = searchInput.value.toLowerCase().trim();
+      cards.forEach(card => {
+        let matchCat = false;
+        if (currentCat === 'all') {
+          matchCat = true;
+        } else if (currentCat === 'apple-related') {
+          matchCat = card.dataset.apple === 'true';
+        } else {
+          matchCat = card.dataset.category === currentCat;
+        }
+        const text = card.innerText.toLowerCase();
+        const matchQuery = !q || text.includes(q);
+        card.style.display = (matchCat && matchQuery) ? 'flex' : 'none';
+      });
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentCat = tab.dataset.cat;
+        filterCards();
+      });
+    });
+
+    searchInput.addEventListener('input', filterCards);
+
+    function copyPrompt(btn) {
+      const promptText = btn.previousElementSibling.innerText;
+      navigator.clipboard.writeText(promptText).then(() => {
+        toast.textContent = `✓ コピー完了: "${promptText}"`;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+      });
+    }
+  </script>
+</body>
+</html>
