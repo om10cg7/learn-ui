@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UI/UX デザイン＆トレンド用語 ビジュアル大図鑑 (Apple特集追加・全29種)</title>
+  <title>UI/UX デザイン＆トレンド用語 ビジュアル大図鑑 (Apple特集追加・全44種)</title>
   <style>
     :root {
       --bg: #0f172a;
@@ -431,24 +431,97 @@
     .menu-icons-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; width: 100%; }
     .icon-box { background: #1e293b; border: 1px solid #475569; border-radius: 10px; padding: 12px 6px; text-align: center; font-size: 0.7rem; color: #cbd5e1; }
     .icon-symbol { font-size: 1.4rem; font-weight: bold; color: var(--accent); margin-bottom: 4px; }
+
+    /* ===== 学習ノート連携で追加したステージ (v3.0) ===== */
+    .stage-liquid { background: linear-gradient(135deg, #312e81, #7c3aed 55%, #db2777); }
+    .liquid-row { display: flex; gap: 10px; align-items: center; }
+    .liquid-pill { background: rgba(255,255,255,0.22); border: 1px solid rgba(255,255,255,0.55); backdrop-filter: blur(8px); color: #fff; border-radius: 999px; padding: 10px 18px; font-weight: 700; font-size: 0.8rem; box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 8px 20px rgba(0,0,0,0.25); }
+    .liquid-circle { width: 46px; height: 46px; border-radius: 50%; background: rgba(255,255,255,0.22); border: 1px solid rgba(255,255,255,0.55); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 8px 20px rgba(0,0,0,0.25); }
+    .stage-bottomnav { background: #0f172a; }
+    .phone-mini { width: 150px; height: 150px; background: #f8fafc; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 12px 30px rgba(0,0,0,0.45); }
+    .phone-body { flex: 1; padding: 10px; }
+    .phone-line { height: 8px; border-radius: 4px; background: #e2e8f0; margin-bottom: 7px; }
+    .phone-nav { display: flex; justify-content: space-around; align-items: center; background: #fff; border-top: 1px solid #e2e8f0; padding: 8px 4px; font-size: 0.95rem; }
+    .phone-nav .on { background: #6366f1; color: #fff; border-radius: 999px; padding: 2px 10px; }
+    .stage-tooltip { background: #1e293b; }
+    .tip-wrap { position: relative; text-align: center; }
+    .tip-bubble { background: #fff; color: #0f172a; font-size: 0.72rem; font-weight: 700; border-radius: 8px; padding: 6px 10px; margin-bottom: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+    .pop-menu { background: #fff; color: #0f172a; border-radius: 10px; padding: 6px; font-size: 0.72rem; text-align: left; box-shadow: 0 10px 25px rgba(0,0,0,0.45); margin-top: 10px; }
+    .pop-menu div { padding: 4px 10px; border-radius: 6px; }
+    .pop-menu .danger { color: #dc2626; }
+    .stage-master { background: #111827; }
+    .master-wrap { display: flex; width: 230px; height: 140px; border-radius: 12px; overflow: hidden; border: 1px solid #374151; box-shadow: 0 12px 30px rgba(0,0,0,0.5); }
+    .master-list { width: 42%; background: #1f2937; padding: 8px; }
+    .master-detail { flex: 1; background: #312e81; padding: 10px; color: #e0e7ff; }
+    .master-item { font-size: 0.66rem; background: #374151; color: #d1d5db; border-radius: 6px; padding: 5px 7px; margin-bottom: 6px; }
+    .master-item.sel { background: #6366f1; color: #fff; font-weight: 700; }
+    .stage-maxi { background: #facc15; }
+    .maxi-grid { display: grid; grid-template-columns: repeat(3, 62px); gap: 6px; transform: rotate(-3deg); }
+    .maxi-grid div { border-radius: 8px; padding: 10px 4px; font-size: 0.66rem; font-weight: 800; text-align: center; }
+    .stage-editorial { background: #faf7f2; color: #111827; }
+    .ed-wrap { width: 230px; text-align: left; }
+    .ed-title { font-family: Georgia, 'Times New Roman', serif; font-size: 1.9rem; font-weight: 700; letter-spacing: 0.08em; line-height: 1; }
+    .ed-cols { display: flex; gap: 10px; margin-top: 8px; font-size: 0.62rem; line-height: 1.5; color: #374151; }
+    .ed-rule { border-top: 2px solid #111827; margin: 8px 0; }
+    .stage-cyber { background: #030712; }
+    .cyber-text { font-family: 'Courier New', monospace; color: #22d3ee; font-weight: 800; font-size: 1.25rem; letter-spacing: 0.12em; text-shadow: 0 0 8px #22d3ee, 0 0 22px #d946ef; }
+    .cyber-sub { color: #f0abfc; font-family: 'Courier New', monospace; font-size: 0.68rem; letter-spacing: 0.3em; margin-top: 6px; text-align: center; }
+    .stage-micro { background: linear-gradient(135deg, #0f172a, #1e3a8a); }
+    .micro-row { display: flex; gap: 12px; align-items: center; }
+    .micro-otp { display: flex; gap: 6px; }
+    .micro-box { width: 34px; height: 42px; border-radius: 9px; background: rgba(255,255,255,0.08); border: 1px solid #38bdf8; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; }
+    .micro-check { width: 46px; height: 46px; border-radius: 50%; background: #22c55e; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; box-shadow: 0 0 24px rgba(34,197,94,0.8); }
+    .stage-loader { background: #f8fafc; }
+    .loader-wrap { text-align: center; color: #334155; }
+    .spinner { width: 52px; height: 52px; margin: 0 auto 10px; border-radius: 50%; border: 6px solid #e2e8f0; border-top-color: #6366f1; animation: spinLoader 1s linear infinite; }
+    @keyframes spinLoader { to { transform: rotate(360deg); } }
+    .progress-track { width: 170px; height: 8px; background: #e2e8f0; border-radius: 99px; overflow: hidden; margin: 0 auto; }
+    .progress-bar { width: 68%; height: 100%; background: linear-gradient(90deg, #6366f1, #a855f7); border-radius: 99px; }
+    .stage-hierarchy { background: #fff7ed; }
+    .hier-wrap { width: 210px; text-align: left; }
+    .hier-big { font-size: 1.15rem; font-weight: 800; color: #111827; }
+    .hier-mid { font-size: 0.8rem; font-weight: 700; color: #9a3412; margin-top: 6px; }
+    .hier-small { font-size: 0.66rem; color: #78716c; margin-top: 4px; line-height: 1.5; }
+    .hier-path { font-size: 0.62rem; color: #ea580c; font-weight: 700; letter-spacing: 0.14em; margin-top: 8px; }
+    .stage-system { background: #eef2ff; }
+    .sys-grid { display: grid; grid-template-columns: repeat(2, 104px); gap: 8px; }
+    .sys-cell { background: #fff; border: 1px solid #c7d2fe; border-radius: 10px; padding: 8px; font-size: 0.64rem; color: #3730a3; text-align: center; font-weight: 700; }
+    .sys-cell .sw { display: inline-block; width: 12px; height: 12px; border-radius: 4px; margin-right: 4px; vertical-align: -2px; }
+    .stage-pairing { background: #fdfbf7; color: #111827; }
+    .pair-wrap { text-align: center; }
+    .pair-serif { font-family: Georgia, serif; font-size: 2rem; line-height: 1.1; }
+    .pair-sans { font-family: Helvetica, Arial, sans-serif; font-size: 0.85rem; color: #4b5563; margin-top: 6px; letter-spacing: 0.04em; }
+    .stage-harmony { background: #111827; }
+    .harm-row { display: flex; gap: 14px; align-items: center; }
+    .harm-group { text-align: center; color: #e5e7eb; font-size: 0.6rem; }
+    .harm-dots { display: flex; gap: 4px; justify-content: center; margin-bottom: 5px; }
+    .harm-dots span { width: 20px; height: 20px; border-radius: 50%; display: inline-block; }
+    .stage-hsb { background: #0f172a; }
+    .hsb-wrap { width: 210px; }
+    .hsb-row { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; color: #e2e8f0; font-size: 0.62rem; }
+    .hsb-bar { flex: 1; height: 12px; border-radius: 6px; }
+    .stage-anchor { background: #fdf2f4; }
+    .anchor-row { display: flex; gap: 6px; }
+    .anchor-chip { width: 40px; height: 56px; border-radius: 9px; box-shadow: 0 4px 10px rgba(0,0,0,0.12); }
   </style>
 </head>
 <body>
 
   <header>
     <div class="container">
-      <h1>UI/UX デザイン＆トレンド用語 ビジュアル大図鑑 <span style="font-size:0.9rem; color:#fda4af; font-weight:600;">v2.0 (Apple特集追加)</span></h1>
-      <p class="subtitle">Apple固有のUI表現・モーフィズム・レイアウト構造・世界観・UIコンポーネント・UX原則の全29用語（プロンプトコピー機能付き）</p>
+      <h1>UI/UX デザイン＆トレンド用語 ビジュアル大図鑑 <span style="font-size:0.9rem; color:#fda4af; font-weight:600;">v3.0 (学習ノート連携)</span></h1>
+      <p class="subtitle">Apple固有のUI表現・モーフィズム・レイアウト構造・世界観・UIコンポーネント・UX原則・タイポグラフィと配色の全44用語（プロンプトコピー機能付き）</p>
       <div class="controls">
         <div class="tabs" id="categoryTabs">
-          <button class="tab-btn active" data-cat="all">すべて表示 (29)</button>
-          <button class="tab-btn apple-tab" data-cat="apple-related">🍎 Appleデザイン関連すべて (9)</button>
-          <button class="tab-btn" data-cat="apple">Apple固有UI・HIG (5)</button>
+          <button class="tab-btn active" data-cat="all">すべて表示 (44)</button>
+          <button class="tab-btn apple-tab" data-cat="apple-related">🍎 Appleデザイン関連すべて (10)</button>
+          <button class="tab-btn" data-cat="apple">Apple固有UI・HIG (6)</button>
           <button class="tab-btn" data-cat="morphism">質感・モーフィズム (6)</button>
-          <button class="tab-btn" data-cat="layout">レイアウト構造 (5)</button>
-          <button class="tab-btn" data-cat="aesthetic">世界観・トレンド (5)</button>
-          <button class="tab-btn" data-cat="component">UIパーツ・通知 (5)</button>
-          <button class="tab-btn" data-cat="ux">動き・UX原則 (3)</button>
+          <button class="tab-btn" data-cat="layout">レイアウト構造 (6)</button>
+          <button class="tab-btn" data-cat="aesthetic">世界観・トレンド (8)</button>
+          <button class="tab-btn" data-cat="component">UIパーツ・通知 (7)</button>
+          <button class="tab-btn" data-cat="ux">動き・UX原則 (7)</button>
+          <button class="tab-btn" data-cat="typecolor">タイポグラフィ・配色 (4)</button>
         </div>
         <input type="text" id="searchInput" class="search-input" placeholder="用語名・Apple・特徴で検索...">
       </div>
@@ -1084,6 +1157,361 @@
         <p class="term-desc">最初からすべての複雑な設定を画面に並べるのではなく、最初は最小限の基本項目だけを見せ、必要に応じて段階的に詳細を開示する設計原則。</p>
         <div class="prompt-box">
           <span>Progressive disclosure UI using collapsible accordion sections for advanced settings</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+
+    <!-- ================= 学習ノート連携で追加 (2026-10-26 / v3.0) ================= -->
+    <article class="term-card" data-category="apple" data-apple="true">
+      <div class="sample-stage stage-liquid">
+        <div class="liquid-row">
+          <div class="liquid-circle">←</div>
+          <div class="liquid-pill">Liquid Glass</div>
+          <div class="liquid-circle">♥</div>
+        </div>
+        <div style="color:#fff; font-size:0.7rem; margin-top:12px; opacity:0.9;">屈折・反射・スペキュラーハイライト</div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="category-badge"></span>
+          <span class="apple-badge">🍎 iOS 26〜 / WWDC 2025</span>
+        </div>
+        <h2 class="term-title">リキッドグラス</h2>
+        <div class="term-en">Liquid Glass</div>
+        <p class="term-desc">AppleがiOS 26で採用した半透明素材表現。背景の屈折（Refraction）や光の反射をリアルタイムにシミュレートし、ガラスそのものが光学的に振る舞う。FigmaのGlassエフェクト（屈折・深さ・曇り・分散）でも再現が進む、グラスモーフィズムの進化形。</p>
+        <div class="prompt-box">
+          <span>Liquid Glass material with light refraction, specular highlights and frosted translucency</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="component">
+      <div class="sample-stage stage-bottomnav">
+        <div class="phone-mini">
+          <div class="phone-body">
+            <div class="phone-line" style="width:70%; background:#c7d2fe;"></div>
+            <div class="phone-line"></div>
+            <div class="phone-line" style="width:85%;"></div>
+            <div class="phone-line" style="width:55%;"></div>
+          </div>
+          <div class="phone-nav"><span>⌂</span><span class="on">◎</span><span>♥</span><span>👤</span></div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="category-badge">4. UIパーツ・通知</span>
+        </div>
+        <h2 class="term-title">ボトムナビゲーション</h2>
+        <div class="term-en">Bottom Navigation</div>
+        <p class="term-desc">モバイルアプリ下部の主要ナビゲーション。Minimal Clean、Glassmorphism、Floating（浮遊型）、Pill Highlight、Center FAB、Dock Styleなど11種のスタイルがある。設計のコツは「項目は4〜5個まで」「アイコンスタイルを統一する」こと。親指の届く範囲に主要導線を置くモバイルの基本形。</p>
+        <div class="prompt-box">
+          <span>Mobile bottom navigation bar with 4 items, pill-shaped active indicator, unified icon style</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="component">
+      <div class="sample-stage stage-tooltip">
+        <div class="tip-wrap">
+          <div class="tip-bubble">ヒントはテキストのみ 💬</div>
+          <div style="font-size:1.3rem;">⚙️</div>
+          <div class="pop-menu"><div>✏️ Edit</div><div>📄 Duplicate</div><div class="danger">🗑 Delete</div></div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="category-badge">4. UIパーツ・通知</span>
+        </div>
+        <h2 class="term-title">ツールチップ & ポップオーバー</h2>
+        <div class="term-en">Tooltip / Popover</div>
+        <p class="term-desc">オーバーレイ（重ね表示）の軽い側の2種。ツールチップはアイコンへの短いテキストヒントのみ。ポップオーバーは対象要素に紐づいて開くクイックアクション（編集・複製・削除など）で、外側クリックで閉じる。選定基準は「割り込み度×決断の重さ」で、重い確認にはモーダルを使う。</p>
+        <div class="prompt-box">
+          <span>Tooltip hint on icon hover and anchored popover menu with quick actions, closes on outside click</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="layout">
+      <div class="sample-stage stage-master">
+        <div class="master-wrap">
+          <div class="master-list">
+            <div class="master-item sel">INV-1042 ¥12,450</div>
+            <div class="master-item">INV-1041 Paid</div>
+            <div class="master-item">INV-1040 Overdue</div>
+            <div class="master-item">INV-1039 Pending</div>
+          </div>
+          <div class="master-detail">
+            <div style="font-weight:800; font-size:0.8rem;">Invoice Detail</div>
+            <div style="font-size:0.66rem; margin-top:6px; line-height:1.6;">明細テーブル／状態バッジ／<br>Download・Remind ボタン</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="category-badge">2. レイアウト構造</span>
+        </div>
+        <h2 class="term-title">マスター・ディテール</h2>
+        <div class="term-en">Master-Detail Layout</div>
+        <p class="term-desc">左の一覧（マスター）で項目を選ぶと、右に詳細（ディテール）が出る2ペイン構成。請求書管理やメールなど業務UIの王道で、大量の項目を「探す→見る→操作する」の流れで扱える。財務ダッシュボードFlowFinの実例では、KPIカード群の下にこのパネルを主役として配置していた。</p>
+        <div class="prompt-box">
+          <span>Master-detail two-pane layout: selectable list on the left, detail panel with actions on the right</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="aesthetic">
+      <div class="sample-stage stage-maxi">
+        <div class="maxi-grid">
+          <div style="background:#ef4444; color:#fff;">MAX</div>
+          <div style="background:#3b82f6; color:#fff;">COLOR</div>
+          <div style="background:#22c55e; color:#fff;">★</div>
+          <div style="background:#a855f7; color:#fff;">DENSE</div>
+          <div style="background:#f97316; color:#fff;">TYPE!</div>
+          <div style="background:#111827; color:#facc15;">MORE</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="category-badge">3. 世界観・トレンド</span>
+        </div>
+        <h2 class="term-title">マキシマリズム</h2>
+        <div class="term-en">Maximalism</div>
+        <p class="term-desc">ミニマリズムの対極で、色・図形・文字情報をあえて盛り込み、密度とエネルギーで魅せる表現。音楽イベントのフライヤーなど「賑やかさ自体が価値」の場面で効く。要素を足すほど階層（ヒエラルキー）の設計が難しくなるため、主役を1つ決めてから盛るのが実践上のコツ。</p>
+        <div class="prompt-box">
+          <span>Maximalist poster design with dense colorful blocks, bold typography and layered elements</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="aesthetic">
+      <div class="sample-stage stage-editorial">
+        <div class="ed-wrap">
+          <div style="font-size:0.6rem; letter-spacing:0.3em;">MAGAZINE STYLE</div>
+          <div class="ed-rule"></div>
+          <div class="ed-title">EDITORIAL</div>
+          <div class="ed-cols"><div>大きなセリフ見出しと細い罫線、段組（コラム）で組む雑誌の組版が土台。</div><div>VOGUEのロゴ書体Didotのように、字形そのものが世界観を作る。</div></div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="category-badge">3. 世界観・トレンド</span>
+        </div>
+        <h2 class="term-title">エディトリアルデザイン</h2>
+        <div class="term-en">Editorial Design</div>
+        <p class="term-desc">雑誌編集の組版をWebやアプリに持ち込む表現。大きなセリフ体の見出し、罫線、段組、余白のリズムで「読ませる」画面を作る。ブランドタイポグラフィの研究（VOGUE=Didotなど）と相性が良く、コンテンツ中心のメディアやブランドサイトで多用される。</p>
+        <div class="prompt-box">
+          <span>Editorial magazine layout with large serif headline, rules, multi-column text and generous whitespace</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="aesthetic">
+      <div class="sample-stage stage-cyber">
+        <div>
+          <div class="cyber-text">CYBERPUNK</div>
+          <div class="cyber-sub">NEON × DARK FUTURE</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="category-badge">3. 世界観・トレンド</span>
+        </div>
+        <h2 class="term-title">サイバーパンク</h2>
+        <div class="term-en">Cyberpunk</div>
+        <p class="term-desc">暗い背景にネオンカラー（シアンやマゼンタの発光）を効かせた近未来の世界観。ゲームやテック系の演出で人気が高く、グロー（発光）表現と等幅フォントの組み合わせが記号になる。Y2K／レトロフューチャーと隣接するが、より暗く・鋭いトーンが特徴。</p>
+        <div class="prompt-box">
+          <span>Cyberpunk interface with neon cyan and magenta glow on near-black background, monospace accents</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="ux">
+      <div class="sample-stage stage-micro">
+        <div class="micro-row">
+          <div class="micro-otp"><div class="micro-box">4</div><div class="micro-box">5</div><div class="micro-box">•</div><div class="micro-box">•</div></div>
+          <div style="color:#7dd3fc; font-size:1.2rem;">→</div>
+          <div class="micro-check">✓</div>
+        </div>
+        <div style="color:#bfdbfe; font-size:0.68rem; margin-top:10px;">自動フォーカス移動 → 成功アニメーション</div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="category-badge">5. 動き・UX原則</span>
+        </div>
+        <h2 class="term-title">マイクロインタラクション</h2>
+        <div class="term-en">Micro-interactions</div>
+        <p class="term-desc">入力・タップなど小さな操作への細かい反応の設計。OTP（ワンタイムコード）入力の自動フォーカス移動、完了時のチェック＋粒子アニメーションなど、「気持ちよさ」を作る要素の総称。成功状態だけでなく、誤入力や期限切れなどエラー状態まで設計して初めて完成する。</p>
+        <div class="prompt-box">
+          <span>Micro-interactions: auto-advancing OTP inputs and a celebratory success check animation with particles</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="ux">
+      <div class="sample-stage stage-loader">
+        <div class="loader-wrap">
+          <div class="spinner"></div>
+          <div class="progress-track"><div class="progress-bar"></div></div>
+          <div style="font-size:0.68rem; margin-top:8px;">読み込み中… 68%</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="category-badge">5. 動き・UX原則</span>
+        </div>
+        <h2 class="term-title">ローダー / プログレスインジケーター</h2>
+        <div class="term-en">Loader / Progress Indicator</div>
+        <p class="term-desc">読み込みの待ち時間に見せる進捗表現。円弧が25%→100%と伸びる円形ローダーやプログレスバーなど、進捗が見える形は同じ待ち時間でも短く感じさせる。Figmaではバリアントで円弧の伸びをアニメーション化できる。静止画で中身の形だけ見せるスケルトンスクリーンとは役割が違う。</p>
+        <div class="prompt-box">
+          <span>Circular loading spinner and progress bar showing percentage, smooth arc animation</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="ux">
+      <div class="sample-stage stage-hierarchy">
+        <div class="hier-wrap">
+          <div class="hier-big">一番大きい見出しが主役</div>
+          <div class="hier-mid">次に目が行く小見出し</div>
+          <div class="hier-small">本文は小さく静かに。視線は F型（横→横→縦）や Z型（左上→右上→左下→右下）に動くため、重要な情報ほどその軌道上に置く。</div>
+          <div class="hier-path">F-PATTERN → Z-PATTERN</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="category-badge">5. 動き・UX原則</span>
+        </div>
+        <h2 class="term-title">視覚階層と視線誘導（F/Zパターン）</h2>
+        <div class="term-en">Visual Hierarchy / Eye-tracking Patterns</div>
+        <p class="term-desc">大きさ・色・配置で情報の優先順位を作る原則。人の視線はWebではFパターン、視覚要素の多い画面ではZパターンで動くとされ、重要な情報やCTAはその軌道上に置くと伝わりやすい。階層が弱いサイトは「古く、信頼できない」印象の原因にもなる。</p>
+        <div class="prompt-box">
+          <span>Visual hierarchy with oversized headline and F-pattern / Z-pattern eye flow layout</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="ux">
+      <div class="sample-stage stage-system">
+        <div class="sys-grid">
+          <div class="sys-cell"><span class="sw" style="background:#6366f1;"></span>Button</div>
+          <div class="sys-cell"><span class="sw" style="background:#22c55e;"></span>Input</div>
+          <div class="sys-cell"><span class="sw" style="background:#f59e0b;"></span>Card</div>
+          <div class="sys-cell"><span class="sw" style="background:#ec4899;"></span>Tokens</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="category-badge">5. 動き・UX原則</span>
+        </div>
+        <h2 class="term-title">デザインシステム</h2>
+        <div class="term-en">Design System</div>
+        <p class="term-desc">ボタンや入力欄などのコンポーネント、色や余白のトークン、使い方のルールを一式そろえた「一貫性の枠組み」。デザインと開発が同じ部品を共有することで、画面が増えても品質と速度が落ちない。UI/UXデザイナーの学習ロードマップでも基礎の次に置かれる重要ステップ。</p>
+        <div class="prompt-box">
+          <span>Design system component library with buttons, inputs, cards and color tokens, consistent styling</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="typecolor">
+      <div class="sample-stage stage-pairing">
+        <div class="pair-wrap">
+          <div class="pair-serif">Playfair Display</div>
+          <div class="pair-sans">+ Inter — 本文は読みやすいサンセリフで受ける</div>
+          <div style="font-size:0.62rem; color:#9ca3af; margin-top:8px;">見出しに個性、本文に明快さ</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="category-badge">6. タイポグラフィ・配色</span>
+        </div>
+        <h2 class="term-title">フォントペアリング</h2>
+        <div class="term-en">Font Pairing</div>
+        <p class="term-desc">見出し用と本文用のフォントの組み合わせ設計。基本形は「見出しに個性のあるフォント、本文に読みやすいサンセリフ（Inter、DM Sansなど）」。例：Playfair Display＋Inter（ラグジュアリー）、Space Grotesk＋Inter（テック）、Sora＋DM Sans（AI系）。ブランドロゴもタイポグラフィでできていることが多い（Apple=Myriad Pro、VOGUE=Didot）。</p>
+        <div class="prompt-box">
+          <span>Font pairing: elegant serif display headline with clean sans-serif body text (Inter)</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="typecolor">
+      <div class="sample-stage stage-harmony">
+        <div class="harm-row">
+          <div class="harm-group"><div class="harm-dots"><span style="background:#ef4444;"></span><span style="background:#22c55e;"></span></div>補色</div>
+          <div class="harm-group"><div class="harm-dots"><span style="background:#3b82f6;"></span><span style="background:#22c55e;"></span><span style="background:#a3e635;"></span></div>類似色</div>
+          <div class="harm-group"><div class="harm-dots"><span style="background:#ef4444;"></span><span style="background:#eab308;"></span><span style="background:#3b82f6;"></span></div>トライアド</div>
+          <div class="harm-group"><div class="harm-dots"><span style="background:#1e3a8a;"></span><span style="background:#38bdf8;"></span><span style="background:#f5f5dc;"></span></div>モノクロ</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="category-badge">6. タイポグラフィ・配色</span>
+        </div>
+        <h2 class="term-title">配色ハーモニー</h2>
+        <div class="term-en">Color Harmony</div>
+        <p class="term-desc">色相環上の位置関係で配色を決めるルール。代表は5種：モノクロマティック（同系色）、類似色、補色、トライアド（3色）、分裂補色。感覚ではなく「まずどのハーモニーを土台にするか」を決めるとパレット作りが迷走しない。決めた後はコントラスト比チェックで可読性を検証する。</p>
+        <div class="prompt-box">
+          <span>Color harmony wheel showing complementary, analogous and triadic color schemes with hex codes</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="typecolor">
+      <div class="sample-stage stage-hsb">
+        <div class="hsb-wrap">
+          <div class="hsb-row"><span style="width:52px;">色相 Hue</span><div class="hsb-bar" style="background:linear-gradient(90deg,#ef4444,#f59e0b,#84cc16,#06b6d4,#8b5cf6,#ef4444);"></div></div>
+          <div class="hsb-row"><span style="width:52px;">彩度 Sat.</span><div class="hsb-bar" style="background:linear-gradient(90deg,#9ca3af,#60a5fa,#2563eb);"></div></div>
+          <div class="hsb-row"><span style="width:52px;">明度 Val.</span><div class="hsb-bar" style="background:linear-gradient(90deg,#111827,#3b82f6,#bfdbfe);"></div></div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="category-badge">6. タイポグラフィ・配色</span>
+        </div>
+        <h2 class="term-title">色の3属性（色相・彩度・明度）</h2>
+        <div class="term-en">Hue / Saturation / Brightness</div>
+        <p class="term-desc">色を3つの軸で捉える考え方。色相＝色の種類、彩度＝鮮やかさ、明度＝明るさ。同じダッシュボードでも属性を変えると青→緑→紫のように印象が変わる。淡色パレット作りやダークモード調整など、配色の微調整はこの3軸を分けて考えるのが基本。</p>
+        <div class="prompt-box">
+          <span>Color picker showing hue, saturation and brightness sliders applied to a UI dashboard</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="term-card" data-category="typecolor">
+      <div class="sample-stage stage-anchor">
+        <div class="anchor-row">
+          <div class="anchor-chip" style="background:#F8D7DA;"></div>
+          <div class="anchor-chip" style="background:#FBECEF;"></div>
+          <div class="anchor-chip" style="background:#C98C96;"></div>
+          <div class="anchor-chip" style="background:#7A5558;"></div>
+          <div class="anchor-chip" style="background:#3A2A2C;"></div>
+        </div>
+        <div style="font-size:0.64rem; color:#7A5558; margin-top:8px; font-weight:700;">淡色だけでは締まらない → 濃い1色が錨（アンカー）</div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="category-badge">6. タイポグラフィ・配色</span>
+        </div>
+        <h2 class="term-title">ダークアンカー</h2>
+        <div class="term-en">Dark Anchor (Palette Technique)</div>
+        <p class="term-desc">淡い色だけで組んだパレットに、濃い色を1色だけ入れて全体を引き締める配色テクニック。例：Serum Blush #F8D7DA などの淡色群に Beauty Shadow #3A2A2C を加えた「Warm Minimal」パレット。文字やボタンの色はこの濃色が担うと、淡い世界観のまま実用性が確保できる。</p>
+        <div class="prompt-box">
+          <span>Soft pastel color palette anchored by one deep dark shade for text and buttons</span>
           <button class="copy-btn" onclick="copyPrompt(this)">📋 コピー</button>
         </div>
       </div>
