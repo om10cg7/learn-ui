@@ -28,3 +28,17 @@ uiux.build のInstagramカルーセル投稿「Glass Button Tutorial in Figma」
 - ガラスUIは背景依存：半透明なので下の色が透けて見え方が変わる。Step 5 のように複数背景で検証するのが実務手順。
 - 図鑑との関連：質感・モーフィズムの「グラスモーフィズム」の作例。Apple の Liquid Glass 系の流れとも地続きで、iOS系UIでは特に相性が良い表現。
 - 数値（屈折82%など具体値）が示されている教材は再現練習に向く。リソース編の学び「毎日1つ模写」の題材にも良い。
+
+## 追記（2026-11-03）：CSS版リキッドグラスの6プロパティ（Alan Builds）
+
+- 出典：Instagram @alan.build のリール「Liquid glass is just six CSS properties stacked」（2026-11-01投稿）
+  - https://www.instagram.com/reel/DfMm4BMTCKA/
+  - 動画解析で確認。Figma版（上記）に対するCSS実装版のレシピ
+- 6ステップ：
+  1. 背景：半透明の白（#ffffff59）
+  2. backdrop-filter：blur(24px) saturate(180%)
+  3. border-radius：999px（ピル型）
+  4. 白い細いボーダー（ rim＝縁の光）
+  5. box-shadow：inset ハイライト＋ドロップシャドウ
+  6. 仕上げに薄い linear-gradient オーバーレイ（shine＝ツヤ）
+- 学び：著者の要約は「Blur 24px, saturate 180%, a white rim, one inner highlight, one shine」。彩度を上げる（saturate 180%）のが色鮮やかな背景の上でガラスらしく見せる鍵で、色の濃いものの上に置く前提のレシピ
